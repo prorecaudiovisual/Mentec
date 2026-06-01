@@ -38,7 +38,7 @@ export default async function HomePage() {
             >
               <span className="w-5 h-px bg-primary-container" />
               <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container">
-                Transformadores · Desde 1995
+                Mentec Equipamentos Elétricos · Desde 1995
               </span>
             </div>
 

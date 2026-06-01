@@ -7,24 +7,33 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Produtos" };
 
-export default async function ProdutosPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ categoria?: string }>;
-}) {
-  const { categoria } = await searchParams;
+function getSubtitle(specs: unknown, description: string): string {
+  const s = specs as Record<string, string> | null;
+  if (s) {
+    const v = s.potencia ?? s.potência ?? s.kva ?? s.capacidade ?? s.range ?? "";
+    if (v) return v;
+  }
+  const first = description.split(/[.;]/)[0].trim();
+  return first.length > 48 ? first.slice(0, 46) + "…" : first;
+}
 
+export default async function ProdutosPage() {
   const [categories, products] = await Promise.all([
     prisma.category.findMany({ orderBy: { name: "asc" } }),
     prisma.product.findMany({
-      where: {
-        published: true,
-        ...(categoria ? { category: { slug: categoria } } : {}),
-      },
+      where: { published: true },
       include: { category: true },
-      orderBy: { name: "asc" },
+      orderBy: [{ featured: "desc" }, { name: "asc" }],
     }),
   ]);
+
+  const grouped = categories
+    .map((cat) => ({
+      ...cat,
+      small: products.filter((p) => p.categoryId === cat.id && !p.featured),
+      large: products.filter((p) => p.categoryId === cat.id && p.featured),
+    }))
+    .filter((g) => g.small.length + g.large.length > 0);
 
   return (
     <>
@@ -52,188 +61,100 @@ export default async function ProdutosPage({
       </section>
 
       {/* ── CATALOG ───────────────────────────────────────── */}
-      <section className="max-w-[1280px] mx-auto px-8 py-16">
-        {/* Category filters */}
-        <div className="flex flex-wrap gap-2.5 mb-14 pb-8 border-b border-[#E3DAD0]">
-          <Link
-            href="/produtos"
-            className={`font-heading text-[9px] uppercase tracking-[0.14em] px-4 py-2.5 transition-all duration-150 ${
-              !categoria
-                ? "bg-inverse-surface text-white"
-                : "border border-[#D5CCB9] text-secondary hover:border-primary-container/40 hover:text-on-surface"
-            }`}
-          >
-            Todos
-          </Link>
-          {categories.map((c) => (
-            <Link
-              key={c.id}
-              href={`/produtos?categoria=${c.slug}`}
-              className={`font-heading text-[9px] uppercase tracking-[0.14em] px-4 py-2.5 transition-all duration-150 ${
-                categoria === c.slug
-                  ? "bg-inverse-surface text-white"
-                  : "border border-[#D5CCB9] text-secondary hover:border-primary-container/40 hover:text-on-surface"
-              }`}
-            >
-              {c.name}
-            </Link>
-          ))}
-        </div>
-
-        {products.length === 0 ? (
+      <section className="max-w-[1280px] mx-auto px-8 py-16 space-y-16">
+        {grouped.length === 0 ? (
           <div className="text-center py-28 text-secondary">
             <span className="material-symbols-outlined block mb-5 opacity-20" style={{ fontSize: "64px" }}>inventory_2</span>
-            <p className="font-heading text-[10px] uppercase tracking-[0.2em]">
-              Nenhum produto encontrado.
-            </p>
-          </div>
-        ) : products.length >= 3 ? (
-          /* Bento grid */
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            {/* Large feature card */}
-            <Link
-              href={`/produtos/${products[0].slug}`}
-              className="md:col-span-8 group relative bg-surface-container-lowest border border-[#E3DAD0] overflow-hidden hover:border-primary-container/40 transition-all duration-300"
-            >
-              <div className="relative h-[400px] overflow-hidden">
-                {products[0].imageUrls[0] ? (
-                  <Image
-                    src={products[0].imageUrls[0]}
-                    alt={products[0].name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-[#111827] grain flex items-center justify-center">
-                    <span className="material-symbols-outlined text-white/10" style={{ fontSize: "80px" }}>bolt</span>
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8">
-                  <span className="bg-primary-container text-white px-3 py-1 font-heading text-[8px] uppercase tracking-wider mb-3 inline-block">
-                    {products[0].category.name}
-                  </span>
-                  <h3 className="font-display font-bold text-4xl text-white uppercase leading-tight mb-2">
-                    {products[0].name}
-                  </h3>
-                  <p className="text-[#C8BFB5] text-sm max-w-md line-clamp-2 leading-relaxed">
-                    {products[0].description}
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Secondary cards */}
-            <div className="md:col-span-4 flex flex-col gap-5">
-              {products.slice(1, 3).map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/produtos/${p.slug}`}
-                  className="group bg-surface-container-lowest border border-[#E3DAD0] overflow-hidden hover:border-primary-container/40 hover:shadow-sm transition-all duration-300 flex-1 relative"
-                >
-                  {p.imageUrls[0] && (
-                    <div className="relative h-36 overflow-hidden">
-                      <Image
-                        src={p.imageUrls[0]}
-                        alt={p.name}
-                        fill
-                        className="object-cover transition-all duration-500"
-                      />
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <span className="font-heading text-[8px] uppercase tracking-[0.16em] text-primary-container block mb-1.5">
-                      {p.category.name}
-                    </span>
-                    <h4 className="font-display font-bold text-2xl text-on-surface uppercase mb-2 leading-tight">
-                      {p.name}
-                    </h4>
-                    <p className="text-tertiary text-sm line-clamp-2 leading-relaxed">{p.description}</p>
-                  </div>
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-container scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                    aria-hidden="true"
-                  />
-                </Link>
-              ))}
-            </div>
-
-            {/* Remaining products */}
-            {products.length > 3 && (
-              <div className="md:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-1">
-                {products.slice(3).map((p) => (
-                  <Link
-                    key={p.id}
-                    href={`/produtos/${p.slug}`}
-                    className="group bg-surface-container-lowest border border-[#E3DAD0] overflow-hidden hover:border-primary-container/40 hover:shadow-sm transition-all duration-300 relative"
-                  >
-                    {p.imageUrls[0] && (
-                      <div className="relative h-48 overflow-hidden">
-                        <Image
-                          src={p.imageUrls[0]}
-                          alt={p.name}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-all duration-500"
-                        />
-                      </div>
-                    )}
-                    <div className="p-6">
-                      <span className="font-heading text-[8px] uppercase tracking-[0.16em] text-primary-container block mb-1.5">
-                        {p.category.name}
-                      </span>
-                      <h4 className="font-display font-bold text-2xl text-on-surface uppercase mb-2 leading-tight">
-                        {p.name}
-                      </h4>
-                      <p className="text-tertiary text-sm line-clamp-2 leading-relaxed">{p.description}</p>
-                    </div>
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-container scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                ))}
-              </div>
-            )}
+            <p className="font-heading text-[10px] uppercase tracking-[0.2em]">Nenhum produto encontrado.</p>
           </div>
         ) : (
-          /* Simple grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {products.map((p) => (
-              <Link
-                key={p.id}
-                href={`/produtos/${p.slug}`}
-                className="group bg-surface-container-lowest border border-[#E3DAD0] overflow-hidden hover:border-primary-container/40 hover:shadow-sm transition-all duration-300 relative"
-              >
-                <div className="h-52 relative overflow-hidden bg-surface-container">
-                  {p.imageUrls[0] ? (
-                    <Image
-                      src={p.imageUrls[0]}
-                      alt={p.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-all duration-500"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full">
-                      <span className="material-symbols-outlined text-4xl text-secondary opacity-20">bolt</span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <span className="font-heading text-[8px] uppercase tracking-[0.16em] text-primary-container block mb-1.5">
-                    {p.category.name}
-                  </span>
-                  <h3 className="font-display font-bold text-2xl text-on-surface uppercase mb-2 leading-tight">
-                    {p.name}
-                  </h3>
-                  <p className="text-tertiary text-sm line-clamp-2 leading-relaxed">{p.description}</p>
-                </div>
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-container scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  aria-hidden="true"
-                />
-              </Link>
-            ))}
-          </div>
+          grouped.map((group) => (
+            <div key={group.id}>
+              {/* Category header */}
+              <div className="flex items-center gap-4 mb-5">
+                <span className="font-display font-bold text-base text-on-surface uppercase tracking-[0.1em]">
+                  {group.name}
+                </span>
+                <div className="flex-1 h-px bg-[#E3DAD0]" />
+              </div>
+
+              {/* Product grid */}
+              <div className={
+                group.large.length > 0
+                  ? "grid grid-cols-1 lg:grid-cols-3 gap-3"
+                  : ""
+              }>
+                {/* ── Small cards (non-featured) ── */}
+                {group.small.length > 0 && (
+                  <div className={`${group.large.length > 0 ? "lg:col-span-2" : ""} grid grid-cols-2 md:grid-cols-4 gap-3`}>
+                    {group.small.map((p) => (
+                      <Link
+                        key={p.id}
+                        href={`/produtos/${p.slug}`}
+                        className="group bg-[#111827] grain flex flex-col items-center text-center p-4 hover:ring-1 hover:ring-primary-container/30 transition-all duration-200"
+                      >
+                        <div className="w-full h-24 relative mb-3 flex-shrink-0">
+                          {p.imageUrls[0] ? (
+                            <Image
+                              src={p.imageUrls[0]}
+                              alt={p.name}
+                              fill
+                              className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="h-full flex items-center justify-center">
+                              <span className="material-symbols-outlined text-white/15" style={{ fontSize: "44px" }}>bolt</span>
+                            </div>
+                          )}
+                        </div>
+                        <h3 className="font-display font-bold text-sm text-white uppercase leading-tight mb-1">
+                          {p.name}
+                        </h3>
+                        <p className="font-heading text-[9px] text-white/40 tracking-wide leading-snug">
+                          {getSubtitle(p.specs, p.description)}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
+                {/* ── Large cards (featured) ── */}
+                {group.large.length > 0 && (
+                  <div className="lg:col-span-1 flex flex-col gap-3">
+                    {group.large.map((p) => (
+                      <Link
+                        key={p.id}
+                        href={`/produtos/${p.slug}`}
+                        className="group relative flex-1 overflow-hidden min-h-[160px] bg-[#111827] grain"
+                      >
+                        {p.imageUrls[0] && (
+                          <Image
+                            src={p.imageUrls[0]}
+                            alt={p.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                        <div className="absolute bottom-5 left-5 right-5">
+                          <h3 className="font-display font-bold text-2xl text-white uppercase leading-tight mb-0.5">
+                            {p.name}
+                          </h3>
+                          <p className="font-heading text-[9px] text-white/50 tracking-wide">
+                            {getSubtitle(p.specs, p.description)}
+                          </p>
+                        </div>
+                        <div
+                          className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-container scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))
         )}
       </section>
 
