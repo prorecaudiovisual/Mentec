@@ -33,6 +33,8 @@ export default async function EditarProdutoPage({
           description: product.description,
           specs: (product.specs as Record<string, string>) ?? {},
           imageUrls: product.imageUrls,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          applications: (product as any).applications ?? [],
           categoryId: product.categoryId,
           featured: product.featured,
           published: product.published,

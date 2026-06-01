@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -30,38 +29,75 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   return (
-    <article className="max-w-3xl mx-auto px-4 py-16">
-      <Link
-        href="/blog"
-        className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-navy-900 mb-8"
-      >
-        <ArrowLeft size={14} /> Voltar para o Blog
-      </Link>
+    <article className="max-w-[1280px] mx-auto px-8 py-16">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-3 mb-14">
+        <Link
+          href="/blog"
+          className="font-heading text-[9px] uppercase tracking-[0.16em] text-secondary hover:text-primary-container transition-colors flex items-center gap-1.5"
+        >
+          <span className="material-symbols-outlined text-sm">arrow_back</span>
+          Blog
+        </Link>
+        <span className="text-[#D5CCB9] font-heading text-[9px]">/</span>
+        <span className="font-heading text-[9px] uppercase tracking-[0.14em] text-on-surface truncate max-w-xs">
+          {post.title}
+        </span>
+      </div>
 
-      {post.coverImage && (
-        <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-8 bg-gray-100">
-          <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
+      <div className="max-w-3xl mx-auto">
+        {/* Cover image */}
+        {post.coverImage && (
+          <div className="relative h-64 sm:h-[420px] overflow-hidden mb-12 border border-[#E3DAD0]">
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          </div>
+        )}
+
+        {/* Date */}
+        <div className="flex items-center gap-3 mb-6">
+          <span className="w-6 h-px bg-primary-container" />
+          <p className="font-heading text-[9px] uppercase tracking-[0.2em] text-primary-container">
+            {post.publishedAt
+              ? new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })
+              : ""}
+          </p>
         </div>
-      )}
 
-      <p className="text-sm text-gray-400 mb-2">
-        {post.publishedAt
-          ? new Date(post.publishedAt).toLocaleDateString("pt-BR", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })
-          : ""}
-      </p>
+        {/* Title */}
+        <h1 className="font-display font-bold text-5xl uppercase text-on-surface mb-10 leading-none">
+          {post.title}
+        </h1>
 
-      <h1 className="font-heading text-3xl font-bold text-navy-900 mb-6">
-        {post.title}
-      </h1>
+        {/* Divider */}
+        <div className="w-12 h-[3px] bg-primary-container mb-10" />
 
-      <div
-        className="prose prose-gray max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+        {/* Content */}
+        <div
+          className="prose prose-gray max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:uppercase prose-a:text-primary-container prose-a:no-underline hover:prose-a:underline prose-strong:text-on-surface prose-img:border prose-img:border-[#E3DAD0]"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+
+        {/* Back link */}
+        <div className="mt-16 pt-8 border-t border-[#E3DAD0]">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 font-heading text-[9px] uppercase tracking-[0.16em] text-secondary hover:text-primary-container transition-colors"
+          >
+            <span className="material-symbols-outlined text-sm">arrow_back</span>
+            Voltar para o Blog
+          </Link>
+        </div>
+      </div>
     </article>
   );
 }

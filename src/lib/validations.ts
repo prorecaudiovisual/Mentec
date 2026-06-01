@@ -6,6 +6,7 @@ export const productSchema = z.object({
   description: z.string().min(10),
   specs: z.record(z.string()).optional(),
   imageUrls: z.array(z.string().url()).optional().default([]),
+  applications: z.array(z.string()).optional().default([]),
   categoryId: z.string().cuid(),
   featured: z.boolean().optional().default(false),
   published: z.boolean().optional().default(true),
@@ -31,6 +32,17 @@ export const contactSchema = z.object({
   type: z.enum(["GENERAL", "QUOTATION", "POST_SALES"]).default("GENERAL"),
 });
 
+export const serviceSchema = z.object({
+  title: z.string().min(2),
+  slug: z.string().min(2),
+  description: z.string().min(10),
+  icon: z.string().min(1).default("build"),
+  imageUrl: z.string().url().optional().or(z.literal("")),
+  published: z.boolean().optional().default(true),
+  order: z.number().int().optional().default(0),
+});
+
 export type ProductInput = z.infer<typeof productSchema>;
 export type PostInput = z.infer<typeof postSchema>;
 export type ContactInput = z.infer<typeof contactSchema>;
+export type ServiceInput = z.infer<typeof serviceSchema>;

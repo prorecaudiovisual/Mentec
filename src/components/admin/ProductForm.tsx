@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import ImageUpload from "./ImageUpload";
 import { slugify } from "@/lib/slugify";
+import { APLICACOES } from "@/lib/aplicacoes";
 import { Plus, Trash2 } from "lucide-react";
 
 interface Category {
@@ -20,6 +21,7 @@ interface ProductFormProps {
     description: string;
     specs: Record<string, string>;
     imageUrls: string[];
+    applications: string[];
     categoryId: string;
     featured: boolean;
     published: boolean;
@@ -31,18 +33,19 @@ export default function ProductForm({ initialData, categories }: ProductFormProp
   const router = useRouter();
   const isEdit = !!initialData;
 
-  const [name, setName] = useState(initialData?.name ?? "");
-  const [slug, setSlug] = useState(initialData?.slug ?? "");
+  const [name, setName]             = useState(initialData?.name ?? "");
+  const [slug, setSlug]             = useState(initialData?.slug ?? "");
   const [description, setDescription] = useState(initialData?.description ?? "");
   const [categoryId, setCategoryId] = useState(initialData?.categoryId ?? categories[0]?.id ?? "");
-  const [imageUrls, setImageUrls] = useState<string[]>(initialData?.imageUrls ?? []);
-  const [featured, setFeatured] = useState(initialData?.featured ?? false);
-  const [published, setPublished] = useState(initialData?.published ?? true);
-  const [specs, setSpecs] = useState<{ key: string; value: string }[]>(
+  const [imageUrls, setImageUrls]   = useState<string[]>(initialData?.imageUrls ?? []);
+  const [applications, setApplications] = useState<string[]>(initialData?.applications ?? []);
+  const [featured, setFeatured]     = useState(initialData?.featured ?? false);
+  const [published, setPublished]   = useState(initialData?.published ?? true);
+  const [specs, setSpecs]           = useState<{ key: string; value: string }[]>(
     Object.entries(initialData?.specs ?? {}).map(([key, value]) => ({ key, value }))
   );
-  const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
+  const [saving, setSaving]         = useState(false);
+  const [error, setError]           = useState("");
 
   useEffect(() => {
     if (!isEdit) setSlug(slugify(name));
@@ -60,6 +63,12 @@ export default function ProductForm({ initialData, categories }: ProductFormProp
     setSpecs(specs.filter((_, i) => i !== idx));
   }
 
+  function toggleApplication(label: string) {
+    setApplications((prev) =>
+      prev.includes(label) ? prev.filter((a) => a !== label) : [...prev, label]
+    );
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
@@ -69,8 +78,12 @@ export default function ProductForm({ initialData, categories }: ProductFormProp
       specs.filter((s) => s.key.trim()).map((s) => [s.key.trim(), s.value.trim()])
     );
 
-    const body = { name, slug, description, categoryId, imageUrls, featured, published, specs: specsObj };
-    const url = isEdit ? `/api/produtos/${initialData!.id}` : "/api/produtos";
+    const body = {
+      name, slug, description, categoryId,
+      imageUrls, applications, featured, published,
+      specs: specsObj,
+    };
+    const url    = isEdit ? `/api/produtos/${initialData!.id}` : "/api/produtos";
     const method = isEdit ? "PUT" : "POST";
 
     const res = await fetch(url, {
@@ -138,6 +151,48 @@ export default function ProductForm({ initialData, categories }: ProductFormProp
         />
       </div>
 
+      {/* ── Aplicações ── */}
+      <div>
+        <label className="label mb-3 block">
+          Aplicações
+          <span className="ml-2 text-gray-400 font-normal text-xs normal-case">
+            ({applications.length} selecionada{applications.length !== 1 ? "s" : ""})
+          </span>
+        </label>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          {APLICACOES.map(({ icon, label }) => {
+            const checked = applications.includes(label);
+            return (
+              <label
+                key={label}
+                className={`flex items-center gap-3 px-4 py-3 border rounded-lg cursor-pointer select-none transition-all ${
+                  checked
+                    ? "border-brand-orange bg-orange-50 text-brand-orange"
+                    : "border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:bg-gray-50"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  className="sr-only"
+                  checked={checked}
+                  onChange={() => toggleApplication(label)}
+                />
+                <span
+                  className="material-symbols-outlined text-xl flex-shrink-0"
+                  style={{
+                    fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24",
+                  }}
+                >
+                  {icon}
+                </span>
+                <span className="text-sm font-medium leading-tight">{label}</span>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── Especificações ── */}
       <div>
         <label className="label mb-2 block">Especificações Técnicas</label>
         <div className="space-y-2">
@@ -175,11 +230,13 @@ export default function ProductForm({ initialData, categories }: ProductFormProp
         </div>
       </div>
 
+      {/* ── Imagens ── */}
       <div>
         <label className="label mb-2 block">Imagens</label>
         <ImageUpload value={imageUrls} onChange={setImageUrls} />
       </div>
 
+      {/* ── Flags ── */}
       <div className="flex gap-6">
         <label className="flex items-center gap-2 cursor-pointer">
           <input

@@ -18,6 +18,13 @@ export async function POST(req: NextRequest) {
 
   const buffer = Buffer.from(await file.arrayBuffer());
 
+  if (!process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY === "COLE_AQUI_A_SERVICE_ROLE_KEY") {
+    return NextResponse.json(
+      { error: "SUPABASE_SERVICE_KEY não configurada. Adicione a service_role key no .env.local." },
+      { status: 500 }
+    );
+  }
+
   const supabase = getSupabaseAdmin();
 
   const { error } = await supabase.storage
@@ -25,6 +32,7 @@ export async function POST(req: NextRequest) {
     .upload(filename, buffer, { contentType: file.type, upsert: false });
 
   if (error) {
+    console.error("[upload] Supabase error:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 

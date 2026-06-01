@@ -16,24 +16,42 @@ export default function ImageUpload({
   maxFiles = 5,
 }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleFiles(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? []);
     if (!files.length) return;
 
     setUploading(true);
+    setError(null);
     const urls: string[] = [];
 
     for (const file of files) {
       const fd = new FormData();
       fd.append("file", file);
-      const res = await fetch("/api/upload", { method: "POST", body: fd });
-      const data = await res.json();
-      if (data.url) urls.push(data.url);
+
+      try {
+        const res = await fetch("/api/upload", { method: "POST", body: fd });
+        const data = await res.json();
+
+        if (!res.ok || !data.url) {
+          setError(data.error ?? "Erro ao fazer upload. Verifique a configuração do Supabase.");
+          break;
+        }
+
+        urls.push(data.url);
+      } catch {
+        setError("Falha na conexão ao fazer upload.");
+        break;
+      }
     }
 
-    onChange([...value, ...urls].slice(0, maxFiles));
+    if (urls.length > 0) {
+      onChange([...value, ...urls].slice(0, maxFiles));
+    }
     setUploading(false);
+    // reset input so the same file can be re-selected after an error
+    e.target.value = "";
   }
 
   function remove(url: string) {
@@ -57,10 +75,14 @@ export default function ImageUpload({
         ))}
 
         {value.length < maxFiles && (
-          <label className="w-24 h-24 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-brand-orange transition-colors text-gray-400 hover:text-brand-orange">
+          <label className={`w-24 h-24 border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors ${
+            uploading
+              ? "border-gray-200 text-gray-300 cursor-not-allowed"
+              : "border-gray-300 text-gray-400 hover:border-brand-orange hover:text-brand-orange"
+          }`}>
             <Upload size={20} />
             <span className="text-xs mt-1">
-              {uploading ? "..." : "Adicionar"}
+              {uploading ? "Enviando..." : "Adicionar"}
             </span>
             <input
               type="file"
@@ -73,6 +95,13 @@ export default function ImageUpload({
           </label>
         )}
       </div>
+
+      {error && (
+        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+          ⚠ {error}
+        </p>
+      )}
+
       <p className="text-xs text-gray-400">Máximo {maxFiles} imagens.</p>
     </div>
   );

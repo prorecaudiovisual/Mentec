@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { DM_Sans, DM_Mono, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
 });
 
-const montserrat = Montserrat({
+const dmMono = DM_Mono({
+  weight: ["400", "500"],
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-dm-mono",
+});
+
+const barlowCondensed = Barlow_Condensed({
+  weight: ["600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-barlow",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +35,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
+      </head>
+      <body
+        className={`${dmSans.variable} ${dmMono.variable} ${barlowCondensed.variable} font-sans bg-surface text-on-surface`}
+      >
         {children}
       </body>
     </html>

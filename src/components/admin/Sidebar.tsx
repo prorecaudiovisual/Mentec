@@ -8,12 +8,14 @@ import {
   BookOpen,
   Mail,
   LogOut,
+  Wrench,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/produtos", label: "Produtos", icon: Package },
+  { href: "/admin/servicos", label: "Serviços", icon: Wrench },
   { href: "/admin/blog", label: "Blog", icon: BookOpen },
   { href: "/admin/contatos", label: "Contatos", icon: Mail },
 ];
