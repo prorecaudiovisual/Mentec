@@ -93,7 +93,7 @@ export default async function ProdutosPage() {
                         href={`/produtos/${p.slug}`}
                         className="group bg-[#111827] grain flex flex-col items-center text-center p-4 hover:ring-1 hover:ring-primary-container/30 transition-all duration-200"
                       >
-                        <div className="w-full h-24 relative mb-3 flex-shrink-0">
+                        <div className="w-full h-24 relative mb-3 flex-shrink-0 bg-white">
                           {p.imageUrls[0] ? (
                             <Image
                               src={p.imageUrls[0]}

@@ -51,10 +51,10 @@ export default function ContatoPage() {
                   entre em contato com nossa unidade de resposta rápida.
                 </p>
                 <a
-                  href="tel:+551140000000"
+                  href="tel:+551126849408"
                   className="font-display font-bold text-2xl text-primary-container hover:underline underline-offset-4 decoration-primary-container/40"
                 >
-                  +55 (11) 4000-0000
+                  (11) 2684-9408 / (11) 2681-3131
                 </a>
               </div>
             </div>
@@ -70,12 +70,12 @@ export default function ContatoPage() {
                 {
                   icon: "mail",
                   label: "E-mail",
-                  text: "contato@mentec.com.br",
+                  text: "menteceletrica@menteceletrica.com.br",
                 },
                 {
                   icon: "call",
                   label: "Telefone",
-                  text: "+55 (11) 4000-0000",
+                  text: "(11) 2684-9408 / (11) 2681-3131",
                 },
               ].map((item) => (
                 <div key={item.label} className="flex gap-4">

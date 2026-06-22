@@ -1,0 +1,65 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#100a14"/>
+    </linearGradient>
+    <radialGradient id="alert" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Central transformer -->
+  <rect x="310" y="160" width="180" height="140" rx="4" fill="#1a2030" stroke="#4a5568" stroke-width="2"/>
+  <text x="400" y="230" font-family="Arial,sans-serif" font-size="12" fill="#ffffff" opacity="0.31" text-anchor="middle">TRANSFOR-</text>
+  <text x="400" y="248" font-family="Arial,sans-serif" font-size="12" fill="#ffffff" opacity="0.31" text-anchor="middle">MADOR</text>
+
+  <!-- Alert glow -->
+  <circle cx="400" cy="230" r="130" fill="url(#alert)"/>
+
+  <!-- Differential relay -->
+  <rect x="55" y="195" width="120" height="70" rx="4" fill="#1e1e2e" stroke="#c8621e" stroke-width="1.5"/>
+  <text x="115" y="220" font-family="Arial,sans-serif" font-size="9" fill="#c8621e" text-anchor="middle" letter-spacing="1">RELÉ</text>
+  <text x="115" y="236" font-family="Arial,sans-serif" font-size="9" fill="#c8621e" text-anchor="middle" letter-spacing="1">DIFERENCIAL</text>
+  <text x="115" y="253" font-family="Arial,sans-serif" font-size="7" fill="#c8621e" opacity="0.38" text-anchor="middle">87T</text>
+  <!-- Connection line -->
+  <line x1="175" y1="230" x2="310" y2="230" stroke="#c8621e" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Buchholz relay -->
+  <rect x="335" y="60" width="130" height="60" rx="4" fill="#1e1e2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="400" y="85" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle" letter-spacing="1">RELÉ BUCHHOLZ</text>
+  <text x="400" y="103" font-family="Arial,sans-serif" font-size="7" fill="#f59e0b" opacity="0.38" text-anchor="middle">DETECÇÃO DE GASES</text>
+  <line x1="400" y1="120" x2="400" y2="160" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Temperature relay -->
+  <rect x="625" y="140" width="120" height="70" rx="4" fill="#1e1e2e" stroke="#4a9edd" stroke-width="1.5"/>
+  <text x="685" y="168" font-family="Arial,sans-serif" font-size="9" fill="#4a9edd" text-anchor="middle" letter-spacing="1">RELÉ DE</text>
+  <text x="685" y="184" font-family="Arial,sans-serif" font-size="9" fill="#4a9edd" text-anchor="middle" letter-spacing="1">TEMPERATURA</text>
+  <text x="685" y="200" font-family="Arial,sans-serif" font-size="7" fill="#4a9edd" opacity="0.38" text-anchor="middle">ALARME / TRIP</text>
+  <line x1="625" y1="175" x2="490" y2="230" stroke="#4a9edd" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Overcurrent relay -->
+  <rect x="625" y="260" width="120" height="70" rx="4" fill="#1e1e2e" stroke="#2aaa60" stroke-width="1.5"/>
+  <text x="685" y="288" font-family="Arial,sans-serif" font-size="9" fill="#2aaa60" text-anchor="middle" letter-spacing="1">RELÉ</text>
+  <text x="685" y="304" font-family="Arial,sans-serif" font-size="9" fill="#2aaa60" text-anchor="middle" letter-spacing="1">SOBRECORRENTE</text>
+  <text x="685" y="320" font-family="Arial,sans-serif" font-size="7" fill="#2aaa60" opacity="0.38" text-anchor="middle">51 / 51N</text>
+  <line x1="625" y1="295" x2="490" y2="270" stroke="#2aaa60" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Fuse -->
+  <rect x="310" y="345" width="180" height="55" rx="4" fill="#1e1e2e" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="400" y="370" font-family="Arial,sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle" letter-spacing="1">ELO FUSÍVEL</text>
+  <text x="400" y="386" font-family="Arial,sans-serif" font-size="7" fill="#8b5cf6" opacity="0.38" text-anchor="middle">PROTEÇÃO PRIMÁRIA</text>
+  <line x1="400" y1="345" x2="400" y2="300" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Alarm indicator -->
+  <circle cx="115" cy="355" r="30" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="115" y="350" font-family="Arial,sans-serif" font-size="18" fill="#ef4444" text-anchor="middle" opacity="0.9">⚡</text>
+  <text x="115" y="370" font-family="Arial,sans-serif" font-size="8" fill="#ef4444" text-anchor="middle" letter-spacing="1">ALARME</text>
+
+  <!-- Title -->
+  <text x="400" y="48" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2" opacity="0.6">SISTEMAS DE PROTEÇÃO</text>
+
+  <rect x="0" y="435" width="800" height="15" fill="#ef4444" opacity="0.7"/>
+</svg>

@@ -214,7 +214,7 @@ export default async function HomePage() {
                   href={`/produtos/${p.slug}`}
                   className="group relative bg-[#1A2535] border border-white/6 overflow-hidden hover:border-primary-container/35 transition-all duration-300"
                 >
-                  <div className="h-60 overflow-hidden relative bg-[#0D1520]">
+                  <div className="h-60 overflow-hidden relative bg-white">
                     {p.imageUrls[0] ? (
                       <Image
                         src={p.imageUrls[0]}

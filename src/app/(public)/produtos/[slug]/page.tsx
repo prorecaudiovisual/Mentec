@@ -56,7 +56,7 @@ export default async function ProdutoPage({
         />
         <div className="relative z-10 max-w-[1280px] mx-auto px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Product image */}
-          <div className="relative h-80 lg:h-[420px] bg-[#0D1520] border border-white/6 flex items-center justify-center overflow-hidden">
+          <div className="relative h-80 lg:h-[420px] bg-white border border-white/6 flex items-center justify-center overflow-hidden">
             {product.imageUrls[0] ? (
               <Image
                 src={product.imageUrls[0]}
@@ -143,7 +143,7 @@ export default async function ProdutoPage({
               </table>
             </div>
 
-            <div className="relative h-80 lg:h-[420px] bg-[#111827] border border-white/6 flex items-center justify-center overflow-hidden">
+            <div className="relative h-80 lg:h-[420px] bg-white border border-white/6 flex items-center justify-center overflow-hidden">
               {(product.imageUrls[1] ?? product.imageUrls[0]) ? (
                 <Image
                   src={product.imageUrls[1] ?? product.imageUrls[0]}
@@ -214,7 +214,7 @@ export default async function ProdutoPage({
                   href={`/produtos/${p.slug}`}
                   className="group bg-white border border-[#E3DAD0] overflow-hidden hover:border-primary-container/40 hover:shadow-sm transition-all duration-200 relative"
                 >
-                  <div className="relative h-32 bg-surface-container overflow-hidden">
+                  <div className="relative h-32 bg-white overflow-hidden">
                     {p.imageUrls[0] ? (
                       <Image
                         src={p.imageUrls[0]}

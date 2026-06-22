@@ -58,11 +58,11 @@ export default function Footer() {
           <div className="space-y-4">
             <div>
               <p className="font-heading text-[9px] uppercase tracking-[0.15em] text-[#4B5563] mb-1">E-mail</p>
-              <p className="text-sm text-[#9CA3AF]">contato@mentec.com.br</p>
+              <p className="text-sm text-[#9CA3AF]">menteceletrica@menteceletrica.com.br</p>
             </div>
             <div>
               <p className="font-heading text-[9px] uppercase tracking-[0.15em] text-[#4B5563] mb-1">Telefone</p>
-              <p className="text-sm text-[#9CA3AF]">+55 (11) 0000-0000</p>
+              <p className="text-sm text-[#9CA3AF]">(11) 2684-9408 / (11) 2681-3131</p>
             </div>
             <div>
               <p className="font-heading text-[9px] uppercase tracking-[0.15em] text-[#4B5563] mb-1">Endereço</p>
