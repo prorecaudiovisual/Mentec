@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Mono, Barlow_Condensed } from "next/font/google";
+import { Figtree, Archivo } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-figtree",
 });
 
-const dmMono = DM_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  variable: "--font-dm-mono",
-});
-
-const barlowCondensed = Barlow_Condensed({
+const archivo = Archivo({
   weight: ["600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-barlow",
+  variable: "--font-archivo",
 });
 
 export const metadata: Metadata = {
@@ -42,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${dmSans.variable} ${dmMono.variable} ${barlowCondensed.variable} font-sans bg-surface text-on-surface`}
+        className={`${figtree.variable} ${archivo.variable} font-sans bg-surface text-on-surface`}
       >
         {children}
       </body>

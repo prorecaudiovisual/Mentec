@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060d1a"/>
+      <stop offset="100%" style="stop-color:#0a1428"/>
+    </linearGradient>
+    <linearGradient id="blueprint" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1e3a"/>
+      <stop offset="100%" style="stop-color:#071428"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)"/>
+
+  <!-- Blueprint paper -->
+  <rect x="60" y="40" width="500" height="380" rx="2" fill="url(#blueprint)" stroke="#1a3a5a" stroke-width="1.5"/>
+
+  <!-- Blueprint grid fine -->
+  <g stroke="#0d2a4a" stroke-width="0.5" opacity="0.8">
+    <line x1="60" y1="60" x2="560" y2="60"/><line x1="60" y1="80" x2="560" y2="80"/>
+    <line x1="60" y1="100" x2="560" y2="100"/><line x1="60" y1="120" x2="560" y2="120"/>
+    <line x1="60" y1="140" x2="560" y2="140"/><line x1="60" y1="160" x2="560" y2="160"/>
+    <line x1="60" y1="180" x2="560" y2="180"/><line x1="60" y1="200" x2="560" y2="200"/>
+    <line x1="60" y1="220" x2="560" y2="220"/><line x1="60" y1="240" x2="560" y2="240"/>
+    <line x1="60" y1="260" x2="560" y2="260"/><line x1="60" y1="280" x2="560" y2="280"/>
+    <line x1="60" y1="300" x2="560" y2="300"/><line x1="60" y1="320" x2="560" y2="320"/>
+    <line x1="60" y1="340" x2="560" y2="340"/><line x1="60" y1="360" x2="560" y2="360"/>
+    <line x1="60" y1="380" x2="560" y2="380"/>
+    <line x1="80" y1="40" x2="80" y2="420"/><line x1="100" y1="40" x2="100" y2="420"/>
+    <line x1="120" y1="40" x2="120" y2="420"/><line x1="140" y1="40" x2="140" y2="420"/>
+    <line x1="160" y1="40" x2="160" y2="420"/><line x1="180" y1="40" x2="180" y2="420"/>
+    <line x1="200" y1="40" x2="200" y2="420"/><line x1="220" y1="40" x2="220" y2="420"/>
+    <line x1="240" y1="40" x2="240" y2="420"/><line x1="260" y1="40" x2="260" y2="420"/>
+    <line x1="280" y1="40" x2="280" y2="420"/><line x1="300" y1="40" x2="300" y2="420"/>
+    <line x1="320" y1="40" x2="320" y2="420"/><line x1="340" y1="40" x2="340" y2="420"/>
+    <line x1="360" y1="40" x2="360" y2="420"/><line x1="380" y1="40" x2="380" y2="420"/>
+    <line x1="400" y1="40" x2="400" y2="420"/><line x1="420" y1="40" x2="420" y2="420"/>
+    <line x1="440" y1="40" x2="440" y2="420"/><line x1="460" y1="40" x2="460" y2="420"/>
+    <line x1="480" y1="40" x2="480" y2="420"/><line x1="500" y1="40" x2="500" y2="420"/>
+    <line x1="520" y1="40" x2="520" y2="420"/><line x1="540" y1="40" x2="540" y2="420"/>
+  </g>
+
+  <!-- Title block -->
+  <rect x="60" y="40" width="500" height="30" fill="#0a2040" stroke="#1a3a5a" stroke-width="1"/>
+  <text x="310" y="60" text-anchor="middle" font-family="monospace" font-size="11" fill="#4a8aaa" letter-spacing="2">PROJETO ELÉTRICO — DIAGRAMA UNIFILAR</text>
+
+  <!-- Border decoration -->
+  <rect x="65" y="74" width="490" height="341" fill="none" stroke="#1a3a5a" stroke-width="1"/>
+
+  <!-- Electrical diagram - single line diagram -->
+  <!-- Source - transformer symbol -->
+  <g filter="url(#glow)" stroke="#4a9aff" stroke-width="1.5" fill="none">
+    <!-- Incoming line -->
+    <line x1="100" y1="110" x2="100" y2="155"/>
+    <!-- Transformer circles -->
+    <circle cx="100" cy="165" r="12"/>
+    <circle cx="100" cy="185" r="12"/>
+    <!-- Outgoing -->
+    <line x1="100" y1="197" x2="100" y2="220"/>
+    <text x="118" y="178" font-family="monospace" font-size="8" fill="#4a9aff">TR-01</text>
+  </g>
+
+  <!-- Main busbar -->
+  <line x1="80" y1="220" x2="480" y2="220" stroke="#4a9aff" stroke-width="3" filter="url(#glow)"/>
+  <text x="280" y="215" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a9aff">BARRAMENTO PRINCIPAL</text>
+
+  <!-- Circuit breaker symbols and feeders -->
+  <!-- CB 1 -->
+  <g filter="url(#glow)" stroke="#C4561E" stroke-width="1.5" fill="none">
+    <line x1="140" y1="220" x2="140" y2="240"/>
+    <rect x="133" y="240" width="14" height="20" rx="1"/>
+    <line x1="140" y1="260" x2="140" y2="280"/>
+    <line x1="130" y1="280" x2="150" y2="280"/>
+    <line x1="130" y1="320" x2="150" y2="320"/>
+    <line x1="140" y1="280" x2="140" y2="320"/>
+    <line x1="140" y1="320" x2="140" y2="350"/>
+    <text x="158" y="305" font-family="monospace" font-size="8" fill="#C4561E">MOTOR-1</text>
+    <text x="158" y="316" font-family="monospace" font-size="7" fill="#4a9aff">30kW</text>
+  </g>
+
+  <!-- CB 2 -->
+  <g filter="url(#glow)" stroke="#C4561E" stroke-width="1.5" fill="none">
+    <line x1="220" y1="220" x2="220" y2="240"/>
+    <rect x="213" y="240" width="14" height="20" rx="1"/>
+    <line x1="220" y1="260" x2="220" y2="280"/>
+    <line x1="210" y1="280" x2="230" y2="280"/>
+    <line x1="210" y1="320" x2="230" y2="320"/>
+    <line x1="220" y1="280" x2="220" y2="320"/>
+    <line x1="220" y1="320" x2="220" y2="350"/>
+    <text x="238" y="305" font-family="monospace" font-size="8" fill="#C4561E">ILUM-1</text>
+    <text x="238" y="316" font-family="monospace" font-size="7" fill="#4a9aff">10kW</text>
+  </g>
+
+  <!-- CB 3 -->
+  <g filter="url(#glow)" stroke="#C4561E" stroke-width="1.5" fill="none">
+    <line x1="300" y1="220" x2="300" y2="240"/>
+    <rect x="293" y="240" width="14" height="20" rx="1"/>
+    <line x1="300" y1="260" x2="300" y2="280"/>
+    <line x1="290" y1="280" x2="310" y2="280"/>
+    <line x1="290" y1="320" x2="310" y2="320"/>
+    <line x1="300" y1="280" x2="300" y2="320"/>
+    <line x1="300" y1="320" x2="300" y2="350"/>
+    <text x="318" y="305" font-family="monospace" font-size="8" fill="#C4561E">TOMAD-1</text>
+    <text x="318" y="316" font-family="monospace" font-size="7" fill="#4a9aff">20kW</text>
+  </g>
+
+  <!-- CB 4 -->
+  <g filter="url(#glow)" stroke="#C4561E" stroke-width="1.5" fill="none">
+    <line x1="400" y1="220" x2="400" y2="240"/>
+    <rect x="393" y="240" width="14" height="20" rx="1"/>
+    <line x1="400" y1="260" x2="400" y2="280"/>
+    <line x1="390" y1="280" x2="410" y2="280"/>
+    <line x1="390" y1="320" x2="410" y2="320"/>
+    <line x1="400" y1="280" x2="400" y2="320"/>
+    <line x1="400" y1="320" x2="400" y2="350"/>
+    <text x="418" y="305" font-family="monospace" font-size="8" fill="#C4561E">AC-01</text>
+    <text x="418" y="316" font-family="monospace" font-size="7" fill="#4a9aff">15kW</text>
+  </g>
+
+  <!-- Ground symbols -->
+  <g stroke="#4a9aff" stroke-width="1.5">
+    <line x1="140" y1="350" x2="140" y2="360"/><line x1="128" y1="360" x2="152" y2="360"/><line x1="132" y1="365" x2="148" y2="365"/><line x1="136" y1="370" x2="144" y2="370"/>
+    <line x1="220" y1="350" x2="220" y2="360"/><line x1="208" y1="360" x2="232" y2="360"/><line x1="212" y1="365" x2="228" y2="365"/><line x1="216" y1="370" x2="224" y2="370"/>
+    <line x1="300" y1="350" x2="300" y2="360"/><line x1="288" y1="360" x2="312" y2="360"/><line x1="292" y1="365" x2="308" y2="365"/><line x1="296" y1="370" x2="304" y2="370"/>
+    <line x1="400" y1="350" x2="400" y2="360"/><line x1="388" y1="360" x2="412" y2="360"/><line x1="392" y1="365" x2="408" y2="365"/><line x1="396" y1="370" x2="404" y2="370"/>
+  </g>
+
+  <!-- Dimensions / annotations -->
+  <g stroke="#aaff44" stroke-width="0.8" fill="none" opacity="0.7">
+    <line x1="80" y1="390" x2="480" y2="390"/>
+    <line x1="80" y1="385" x2="80" y2="395"/>
+    <line x1="480" y1="385" x2="480" y2="395"/>
+  </g>
+  <text x="280" y="406" text-anchor="middle" font-family="monospace" font-size="9" fill="#aaff44" opacity="0.7">400 kVA — TENSÃO: 13,8kV / 380V</text>
+
+  <!-- Revision table -->
+  <g transform="translate(600, 60)">
+    <rect x="0" y="0" width="150" height="130" fill="#061428" stroke="#1a3a5a" stroke-width="1"/>
+    <rect x="0" y="0" width="150" height="20" fill="#0a2040"/>
+    <text x="75" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a8aaa">REVISÕES</text>
+    <line x1="0" y1="20" x2="150" y2="20" stroke="#1a3a5a"/>
+    <text x="5" y="33" font-family="monospace" font-size="8" fill="#2a4a6a">REV  DATA       DESC</text>
+    <line x1="0" y1="36" x2="150" y2="36" stroke="#1a3a5a" opacity="0.5"/>
+    <text x="5" y="50" font-family="monospace" font-size="8" fill="#4a7aaa">00   2026-01   EMISSÃO</text>
+    <text x="5" y="64" font-family="monospace" font-size="8" fill="#4a7aaa">01   2026-03   REVISÃO</text>
+    <text x="5" y="78" font-family="monospace" font-size="8" fill="#C4561E">02   2026-06   APROVAÇÃO</text>
+
+    <!-- Stamp -->
+    <rect x="10" y="95" width="130" height="28" rx="2" fill="none" stroke="#C4561E" stroke-width="1.5"/>
+    <text x="75" y="108" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E">APROVADO</text>
+    <text x="75" y="118" text-anchor="middle" font-family="monospace" font-size="7" fill="#C4561E">ENG. RESP.</text>
+  </g>
+
+  <!-- Pencil / ruler decoration -->
+  <g transform="translate(600, 220)" opacity="0.7">
+    <rect x="5" y="0" width="140" height="180" rx="3" fill="#0a1828" stroke="#1a3a5a" stroke-width="1"/>
+    <text x="75" y="18" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a8aaa">INFORMAÇÕES</text>
+    <line x1="5" y1="22" x2="145" y2="22" stroke="#1a3a5a"/>
+    <text x="12" y="38" font-family="monospace" font-size="8" fill="#4a7aaa">OBRA:  MENTEC</text>
+    <text x="12" y="52" font-family="monospace" font-size="8" fill="#4a7aaa">RESP:  ENG ELÉTRICO</text>
+    <text x="12" y="66" font-family="monospace" font-size="8" fill="#4a7aaa">ESCALA: 1:100</text>
+    <text x="12" y="80" font-family="monospace" font-size="8" fill="#4a7aaa">NORMA: NBR-5410</text>
+    <text x="12" y="94" font-family="monospace" font-size="8" fill="#4a7aaa">FOLHA: 01/05</text>
+    <line x1="5" y1="100" x2="145" y2="100" stroke="#1a3a5a"/>
+    <text x="12" y="114" font-family="monospace" font-size="8" fill="#C4561E">MENTEC ENGENHARIA</text>
+    <text x="12" y="128" font-family="monospace" font-size="7" fill="#2a4a6a">Transformadores &amp; Sistemas</text>
+  </g>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#060d1a" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#4a9aff" letter-spacing="3">PROJETOS ELÉTRICOS · ENGENHARIA</text>
+</svg>

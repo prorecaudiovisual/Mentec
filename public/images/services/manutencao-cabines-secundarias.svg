@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#070d1a"/>
+      <stop offset="100%" style="stop-color:#0f1828"/>
+    </linearGradient>
+    <linearGradient id="cab" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a2840"/>
+      <stop offset="100%" style="stop-color:#131e32"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)"/>
+
+  <!-- Floor -->
+  <rect x="0" y="390" width="800" height="90" fill="#080e1a"/>
+  <line x1="0" y1="390" x2="800" y2="390" stroke="#1a2640" stroke-width="1"/>
+
+  <!-- Cabinet row - secondary distribution -->
+  <!-- Cabinet 1 -->
+  <rect x="60" y="100" width="130" height="290" rx="3" fill="url(#cab)" stroke="#2a3a5a" stroke-width="2"/>
+  <rect x="68" y="110" width="114" height="260" rx="2" fill="#0c1828" stroke="#1a2840" stroke-width="1"/>
+  <text x="125" y="127" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">QGBT-01</text>
+  <!-- Main breaker -->
+  <rect x="80" y="135" width="90" height="30" rx="2" fill="#0a1525" stroke="#C4561E" stroke-width="1.5"/>
+  <text x="125" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#C4561E">DJ GERAL</text>
+  <!-- Feeder breakers grid -->
+  <g fill="#0a1525" stroke="#2a3a55" stroke-width="1">
+    <rect x="78" y="176" width="42" height="28" rx="1"/>
+    <rect x="128" y="176" width="42" height="28" rx="1"/>
+    <rect x="78" y="212" width="42" height="28" rx="1"/>
+    <rect x="128" y="212" width="42" height="28" rx="1"/>
+    <rect x="78" y="248" width="42" height="28" rx="1"/>
+    <rect x="128" y="248" width="42" height="28" rx="1"/>
+    <rect x="78" y="284" width="42" height="28" rx="1"/>
+    <rect x="128" y="284" width="42" height="28" rx="1"/>
+    <rect x="78" y="320" width="42" height="28" rx="1"/>
+    <rect x="128" y="320" width="42" height="28" rx="1"/>
+  </g>
+  <!-- Switch handles -->
+  <rect x="91" y="183" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="141" y="183" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="91" y="219" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="141" y="219" width="16" height="8" rx="1" fill="#2a3a55"/>
+  <rect x="91" y="255" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="141" y="255" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="91" y="291" width="16" height="8" rx="1" fill="#2a3a55"/>
+  <rect x="141" y="291" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="91" y="327" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="141" y="327" width="16" height="8" rx="1" fill="#2a3a55"/>
+
+  <!-- Cabinet 2 - wider, main distribution -->
+  <rect x="210" y="80" width="220" height="310" rx="3" fill="url(#cab)" stroke="#2a3a5a" stroke-width="2.5"/>
+  <rect x="220" y="92" width="200" height="288" rx="2" fill="#0c1828" stroke="#1a2840" stroke-width="1"/>
+  <text x="320" y="110" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a7aaa">PAINEL DE DISTRIBUIÇÃO SECUNDÁRIA</text>
+  <!-- Busbar visible at top -->
+  <rect x="228" y="120" width="184" height="10" fill="#C4561E" rx="1"/>
+  <rect x="228" y="133" width="184" height="10" fill="#4a9aff" rx="1"/>
+  <rect x="228" y="146" width="184" height="10" fill="#aaff00" rx="1"/>
+  <text x="420" y="127" font-family="monospace" font-size="7" fill="#C4561E">L1</text>
+  <text x="420" y="140" font-family="monospace" font-size="7" fill="#4a9aff">L2</text>
+  <text x="420" y="153" font-family="monospace" font-size="7" fill="#aaff00">L3</text>
+
+  <!-- Large circuit breakers -->
+  <rect x="228" y="165" width="55" height="80" rx="2" fill="#0a1525" stroke="#C4561E" stroke-width="1.5"/>
+  <text x="255" y="195" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E">400A</text>
+  <rect x="238" y="205" width="35" height="18" rx="3" fill="#C4561E"/>
+  <rect x="248" y="222" width="15" height="22" rx="1" fill="#a03a10"/>
+
+  <rect x="295" y="165" width="55" height="80" rx="2" fill="#0a1525" stroke="#C4561E" stroke-width="1.5"/>
+  <text x="322" y="195" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E">250A</text>
+  <rect x="305" y="205" width="35" height="18" rx="3" fill="#C4561E"/>
+  <rect x="315" y="222" width="15" height="22" rx="1" fill="#a03a10"/>
+
+  <rect x="362" y="165" width="55" height="80" rx="2" fill="#0a1525" stroke="#2a3a55" stroke-width="1.5"/>
+  <text x="389" y="195" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">100A</text>
+  <rect x="372" y="205" width="35" height="18" rx="3" fill="#2a3a55"/>
+
+  <!-- Smaller breakers row -->
+  <g fill="#0a1525" stroke="#2a3a55" stroke-width="1">
+    <rect x="228" y="258" width="28" height="50" rx="1"/>
+    <rect x="262" y="258" width="28" height="50" rx="1"/>
+    <rect x="296" y="258" width="28" height="50" rx="1"/>
+    <rect x="330" y="258" width="28" height="50" rx="1"/>
+    <rect x="364" y="258" width="28" height="50" rx="1"/>
+    <rect x="228" y="316" width="28" height="50" rx="1"/>
+    <rect x="262" y="316" width="28" height="50" rx="1"/>
+    <rect x="296" y="316" width="28" height="50" rx="1"/>
+    <rect x="330" y="316" width="28" height="50" rx="1"/>
+    <rect x="364" y="316" width="28" height="50" rx="1"/>
+  </g>
+  <!-- Handles for smaller breakers -->
+  <rect x="234" y="265" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="268" y="265" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="302" y="265" width="16" height="8" rx="1" fill="#2a3a55"/>
+  <rect x="336" y="265" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="370" y="265" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="234" y="323" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="268" y="323" width="16" height="8" rx="1" fill="#2a3a55"/>
+  <rect x="302" y="323" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="336" y="323" width="16" height="8" rx="1" fill="#C4561E"/>
+  <rect x="370" y="323" width="16" height="8" rx="1" fill="#2a3a55"/>
+
+  <!-- Cabinet 3 - small -->
+  <rect x="450" y="120" width="100" height="270" rx="3" fill="url(#cab)" stroke="#2a3a5a" stroke-width="2"/>
+  <rect x="458" y="130" width="84" height="250" rx="2" fill="#0c1828" stroke="#1a2840" stroke-width="1"/>
+  <text x="500" y="147" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">QGBT-03</text>
+  <rect x="466" y="157" width="68" height="20" rx="2" fill="#0a1525" stroke="#C4561E" stroke-width="1"/>
+  <text x="500" y="171" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E">PRINCIPAL</text>
+  <!-- LED status strip -->
+  <rect x="466" y="185" width="68" height="12" rx="1" fill="#0a1020"/>
+  <circle cx="475" cy="191" r="4" fill="#00ff44" filter="url(#glow)"/>
+  <circle cx="487" cy="191" r="4" fill="#00ff44" filter="url(#glow)"/>
+  <circle cx="499" cy="191" r="4" fill="#ffaa00" filter="url(#glow)"/>
+  <circle cx="511" cy="191" r="4" fill="#00ff44" filter="url(#glow)"/>
+  <circle cx="523" cy="191" r="4" fill="#ff4422" filter="url(#glow)"/>
+
+  <!-- Wiring conduits -->
+  <rect x="560" y="140" width="30" height="250" rx="4" fill="#0a1525" stroke="#1a2840" stroke-width="1"/>
+  <line x1="575" y1="150" x2="575" y2="380" stroke="#C4561E" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="568" y1="150" x2="568" y2="380" stroke="#4a9aff" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="582" y1="150" x2="582" y2="380" stroke="#aaff00" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Measurement instruments right -->
+  <rect x="610" y="100" width="150" height="280" rx="6" fill="#0a1020" stroke="#1a2840" stroke-width="1.5"/>
+  <text x="685" y="120" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a7aaa">PARÂMETROS</text>
+  <line x1="620" y1="126" x2="750" y2="126" stroke="#1a2840" stroke-width="1"/>
+  <text x="618" y="145" font-family="monospace" font-size="9" fill="#4a7aaa">TENSÃO</text>
+  <text x="748" y="145" text-anchor="end" font-family="monospace" font-size="11" fill="#aaff00">380 V</text>
+  <text x="618" y="165" font-family="monospace" font-size="9" fill="#4a7aaa">CORRENTE</text>
+  <text x="748" y="165" text-anchor="end" font-family="monospace" font-size="11" fill="#00ccff">184 A</text>
+  <text x="618" y="185" font-family="monospace" font-size="9" fill="#4a7aaa">POTÊNCIA</text>
+  <text x="748" y="185" text-anchor="end" font-family="monospace" font-size="11" fill="#C4561E">98 kW</text>
+  <text x="618" y="205" font-family="monospace" font-size="9" fill="#4a7aaa">FP</text>
+  <text x="748" y="205" text-anchor="end" font-family="monospace" font-size="11" fill="#aaff00">0.94</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#070d1a" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#4a9aff" letter-spacing="3">CABINES SECUNDÁRIAS · DISTRIBUIÇÃO</text>
+</svg>

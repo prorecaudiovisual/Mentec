@@ -65,7 +65,7 @@ export default function ContatoPage() {
                 {
                   icon: "location_on",
                   label: "Endereço",
-                  text: "Av. Industrial, 4500\nSão Paulo, SP — Brasil",
+                  text: "Rua Barbosa de Campos, 228 - Vila Granada\nSão Paulo - CEP: 03622-040",
                 },
                 {
                   icon: "mail",

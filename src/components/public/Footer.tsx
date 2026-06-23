@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/sobre",   label: "Sobre" },
@@ -18,12 +19,13 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <p className="font-display text-[36px] font-bold text-white tracking-[0.18em] uppercase leading-none mb-1">
-            MENTEC
-          </p>
-          <p className="font-heading text-[9px] uppercase tracking-[0.2em] text-primary-container mb-6">
-            TRANSFORMADORES
-          </p>
+          <Image
+            src="/MENTEC_logo_texto_branco.png"
+            alt="Mentec"
+            width={220}
+            height={96}
+            className="h-32 w-auto mb-6"
+          />
           <p className="text-sm text-[#9CA3AF] leading-relaxed max-w-[260px]">
             Excelência técnica em transformadores elétricos para os setores
             mais exigentes da indústria brasileira. Desde 1995.
@@ -66,7 +68,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="font-heading text-[9px] uppercase tracking-[0.15em] text-[#4B5563] mb-1">Endereço</p>
-              <p className="text-sm text-[#9CA3AF]">Av. Industrial, 4500<br />São Paulo, SP — Brasil</p>
+              <p className="text-sm text-[#9CA3AF]">Rua Barbosa de Campos, 228 - Vila Granada<br />São Paulo - CEP: 03622-040</p>
             </div>
           </div>
         </div>

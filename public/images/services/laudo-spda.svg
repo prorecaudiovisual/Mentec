@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#050a14"/>
+      <stop offset="100%" style="stop-color:#0d1828"/>
+    </linearGradient>
+    <radialGradient id="sky" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#1a2a4a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#050a14;stop-opacity:1"/>
+    </radialGradient>
+    <filter id="lightning-glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft-glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="800" height="480" fill="url(#bg)"/>
+  <ellipse cx="400" cy="140" rx="350" ry="180" fill="url(#sky)" opacity="0.5"/>
+
+  <!-- Storm clouds hint -->
+  <ellipse cx="200" cy="80" rx="140" ry="50" fill="#0d1828" opacity="0.8"/>
+  <ellipse cx="150" cy="70" rx="100" ry="40" fill="#111f35" opacity="0.6"/>
+  <ellipse cx="600" cy="90" rx="160" ry="55" fill="#0d1828" opacity="0.8"/>
+  <ellipse cx="650" cy="75" rx="110" ry="42" fill="#111f35" opacity="0.6"/>
+
+  <!-- Ground -->
+  <rect x="0" y="390" width="800" height="90" fill="#0a1020"/>
+  <line x1="0" y1="390" x2="800" y2="390" stroke="#1a2840" stroke-width="1"/>
+
+  <!-- SPDA Tower structure -->
+  <!-- Main mast -->
+  <line x1="400" y1="30" x2="400" y2="390" stroke="#2a3a55" stroke-width="6"/>
+  <!-- Tip (lightning rod) -->
+  <line x1="400" y1="10" x2="400" y2="40" stroke="#C4561E" stroke-width="3"/>
+  <circle cx="400" cy="10" r="4" fill="#C4561E"/>
+
+  <!-- Cross arms -->
+  <line x1="310" y1="120" x2="490" y2="120" stroke="#2a3a55" stroke-width="4"/>
+  <line x1="330" y1="180" x2="470" y2="180" stroke="#2a3a55" stroke-width="3"/>
+  <line x1="350" y1="240" x2="450" y2="240" stroke="#2a3a55" stroke-width="3"/>
+
+  <!-- Insulators -->
+  <circle cx="310" cy="120" r="6" fill="#1a2840" stroke="#2a3a55" stroke-width="2"/>
+  <circle cx="490" cy="120" r="6" fill="#1a2840" stroke="#2a3a55" stroke-width="2"/>
+
+  <!-- Conductor cables from tower to ground -->
+  <path d="M310,120 Q200,250 160,390" fill="none" stroke="#1e3a5a" stroke-width="2" stroke-dasharray="4,3"/>
+  <path d="M490,120 Q600,250 640,390" fill="none" stroke="#1e3a5a" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Ground rods -->
+  <line x1="160" y1="390" x2="160" y2="440" stroke="#2a4a6a" stroke-width="3"/>
+  <line x1="640" y1="390" x2="640" y2="440" stroke="#2a4a6a" stroke-width="3"/>
+  <ellipse cx="160" cy="440" rx="20" ry="6" fill="#1a3a5a" opacity="0.7"/>
+  <ellipse cx="640" cy="440" rx="20" ry="6" fill="#1a3a5a" opacity="0.7"/>
+
+  <!-- Lightning bolt main -->
+  <g filter="url(#lightning-glow)">
+    <polyline points="220,30 190,140 215,140 175,280" fill="none" stroke="#f5e642" stroke-width="3" stroke-linejoin="round"/>
+    <polyline points="222,32 192,140 217,140 177,280" fill="none" stroke="white" stroke-width="1" opacity="0.8"/>
+  </g>
+
+  <!-- Lightning bolt secondary -->
+  <g filter="url(#soft-glow)" opacity="0.6">
+    <polyline points="580,20 605,130 582,130 618,270" fill="none" stroke="#f5e642" stroke-width="2"/>
+  </g>
+
+  <!-- Small lightning hitting tower tip -->
+  <g filter="url(#lightning-glow)">
+    <polyline points="340,0 370,60 355,60 390,10" fill="none" stroke="#f5e642" stroke-width="2.5"/>
+    <polyline points="400,10 415,55 400,55 430,0" fill="none" stroke="#f5e642" stroke-width="2"/>
+  </g>
+
+  <!-- Protection radius arc -->
+  <path d="M200,80 Q400,350 600,80" fill="none" stroke="#C4561E" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+
+  <!-- Electric field rings around tip -->
+  <circle cx="400" cy="10" r="20" fill="none" stroke="#f5e642" stroke-width="1" opacity="0.3"/>
+  <circle cx="400" cy="10" r="35" fill="none" stroke="#f5e642" stroke-width="1" opacity="0.2"/>
+  <circle cx="400" cy="10" r="50" fill="none" stroke="#f5e642" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- Measurement indicators -->
+  <g opacity="0.5">
+    <line x1="680" y1="10" x2="680" y2="390" stroke="#2a4a6a" stroke-width="1"/>
+    <line x1="675" y1="10" x2="685" y2="10" stroke="#4a7aaa" stroke-width="1"/>
+    <line x1="675" y1="390" x2="685" y2="390" stroke="#4a7aaa" stroke-width="1"/>
+    <text x="695" y="200" font-family="monospace" font-size="9" fill="#4a7aaa">H</text>
+  </g>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#050a14" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#f5e642" letter-spacing="3">LAUDO SPDA · PROTEÇÃO ATMOSFÉRICA</text>
+</svg>

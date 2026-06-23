@@ -19,6 +19,16 @@ export default async function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="grain bg-grid relative min-h-[94vh] flex flex-col justify-center bg-inverse-surface overflow-hidden">
+        {/* Background video (low opacity) */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.10] pointer-events-none z-0"
+          src="/hero-bg.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
         {/* Vertical accent line */}
         <div
           className="absolute left-8 top-0 bottom-0 w-px pointer-events-none hidden lg:block"

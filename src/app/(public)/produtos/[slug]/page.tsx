@@ -24,53 +24,65 @@ export default async function ProdutoPage({
 }) {
   const { slug } = await params;
 
-  const [product, otherProducts] = await Promise.all([
+  const [product, categories] = await Promise.all([
     prisma.product.findUnique({
       where: { slug, published: true },
       include: { category: true },
     }),
-    prisma.product.findMany({
-      where: { published: true, slug: { not: slug } },
-      include: { category: true },
-      take: 8,
+    prisma.category.findMany({
+      orderBy: { name: "asc" },
+      where: { products: { some: { published: true } } },
+      include: {
+        products: {
+          where: { published: true },
+          select: { imageUrls: true, slug: true },
+          take: 1,
+        },
+      },
     }),
   ]);
 
   if (!product) notFound();
 
   const specs = (product.specs as Record<string, string>) ?? {};
+
+  // Título da seção de especificações conforme a categoria do produto.
+  const categoriaLower = product.category.name.toLowerCase();
+  const detalhesTitulo = categoriaLower.includes("disjuntor")
+    ? "Detalhes do Disjuntor"
+    : "Detalhes do Transformador";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const storedApplications: string[] = (product as any).applications ?? [];
-  const aplicacoes = storedApplications.length > 0
-    ? APLICACOES.filter((a) => storedApplications.includes(a.label))
-    : [];
+  const filteredApplications = APLICACOES.filter((a) =>
+    storedApplications.includes(a.label)
+  );
+  // Sempre exibir a seção de aplicações: usa as cadastradas ou, na ausência,
+  // o conjunto padrão de aplicações do equipamento.
+  const aplicacoes =
+    filteredApplications.length > 0 ? filteredApplications : APLICACOES;
 
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="grain bg-grid bg-inverse-surface overflow-hidden relative">
-        <div
-          className="absolute left-8 top-0 bottom-0 w-px pointer-events-none hidden lg:block"
-          style={{ background: "linear-gradient(to bottom, transparent, rgba(200,98,30,0.3) 40%, rgba(200,98,30,0.3) 80%, transparent)" }}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 max-w-[1280px] mx-auto px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Product image */}
-          <div className="relative h-80 lg:h-[420px] bg-white border border-white/6 flex items-center justify-center overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
+          {/* Product image — preenche toda a lateral esquerda */}
+          <div className="relative bg-white min-h-[340px] lg:min-h-[600px] flex items-center justify-center overflow-hidden lg:[clip-path:polygon(0_0,88%_0,100%_100%,0_100%)]">
             {product.imageUrls[0] ? (
               <Image
                 src={product.imageUrls[0]}
                 alt={product.name}
                 fill
-                className="object-contain p-8"
+                className="object-contain p-6 lg:p-12"
+                priority
               />
             ) : (
-              <span className="material-symbols-outlined text-white/8" style={{ fontSize: "80px" }}>bolt</span>
+              <span className="material-symbols-outlined text-black/10" style={{ fontSize: "100px" }}>bolt</span>
             )}
           </div>
 
           {/* Product info */}
-          <div>
+          <div className="relative z-10 flex flex-col justify-center px-8 lg:pl-12 lg:pr-16 py-14 lg:py-20 max-w-[640px]">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 mb-8">
               <Link
@@ -86,7 +98,7 @@ export default async function ProdutoPage({
             </div>
 
             <h1
-              className="font-display font-bold text-white uppercase mb-4 leading-[0.9]"
+              className="font-display font-bold text-white mb-4 leading-[0.9]"
               style={{ fontSize: "clamp(48px, 5vw, 72px)" }}
             >
               {product.name}
@@ -126,8 +138,8 @@ export default async function ProdutoPage({
                   Especificações Técnicas
                 </span>
               </div>
-              <h2 className="font-display font-bold text-4xl text-white uppercase mb-10 leading-none">
-                Detalhes do Transformador
+              <h2 className="font-display font-bold text-4xl text-white mb-10 leading-none">
+                {detalhesTitulo}
               </h2>
               <table className="w-full border-collapse">
                 <tbody>
@@ -143,13 +155,13 @@ export default async function ProdutoPage({
               </table>
             </div>
 
-            <div className="relative h-80 lg:h-[420px] bg-white border border-white/6 flex items-center justify-center overflow-hidden">
+            <div className="relative h-96 lg:h-[560px] flex items-center justify-center overflow-visible">
               {(product.imageUrls[1] ?? product.imageUrls[0]) ? (
                 <Image
                   src={product.imageUrls[1] ?? product.imageUrls[0]}
                   alt={product.name}
                   fill
-                  className="object-contain p-8"
+                  className="object-contain"
                 />
               ) : (
                 <span className="material-symbols-outlined text-white/8" style={{ fontSize: "80px" }}>bolt</span>
@@ -160,8 +172,7 @@ export default async function ProdutoPage({
       )}
 
       {/* ── APLICAÇÕES ────────────────────────────────────── */}
-      {aplicacoes.length > 0 && (
-        <section className="bg-[#111827] grain">
+      <section className="bg-[#111827] grain">
           <div className="max-w-[1280px] mx-auto px-8 py-16">
             <div className="text-center mb-12">
               <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container block mb-3">
@@ -188,56 +199,47 @@ export default async function ProdutoPage({
             </div>
           </div>
         </section>
-      )}
 
-      {/* ── OUTROS PRODUTOS ───────────────────────────────── */}
-      {otherProducts.length > 0 && (
-        <section className="bg-surface-container-low py-16">
+      {/* ── NOSSOS PRODUTOS ───────────────────────────────── */}
+      {categories.length > 0 && (
+        <section className="bg-[#F5F5F5] py-16">
           <div className="max-w-[1280px] mx-auto px-8">
-            <div className="flex items-center justify-between mb-10 pb-6 border-b border-[#E3DAD0]">
-              <h2 className="font-display font-bold text-4xl text-on-surface uppercase leading-none">
-                Nossos Transformadores
-              </h2>
-              <Link
-                href="/produtos"
-                className="font-heading text-[9px] uppercase tracking-[0.16em] text-primary-container flex items-center gap-2 hover:text-[#A8501A] transition-colors group"
-              >
-                Ver todos
-                <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </Link>
-            </div>
+            <h2 className="font-display font-bold text-3xl text-center text-on-surface mb-10">
+              Nossos Produtos
+            </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {otherProducts.map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/produtos/${p.slug}`}
-                  className="group bg-white border border-[#E3DAD0] overflow-hidden hover:border-primary-container/40 hover:shadow-sm transition-all duration-200 relative"
-                >
-                  <div className="relative h-32 bg-white overflow-hidden">
-                    {p.imageUrls[0] ? (
-                      <Image
-                        src={p.imageUrls[0]}
-                        alt={p.name}
-                        fill
-                        className="object-contain p-3 transition-all duration-500"
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full">
-                        <span className="material-symbols-outlined text-3xl text-secondary opacity-20">bolt</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-3 border-t border-[#E3DAD0]">
-                    <span className="font-heading text-[8px] uppercase tracking-[0.14em] text-primary-container block mb-1">
-                      {p.category.name}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {categories.map((cat) => {
+                const img = cat.products[0]?.imageUrls?.[0] ?? null;
+                const href = cat.products[0]
+                  ? `/produtos/${cat.products[0].slug}`
+                  : `/produtos?categoria=${cat.slug}`;
+                return (
+                  <Link
+                    key={cat.id}
+                    href={href}
+                    className="group flex flex-col items-center bg-white rounded-xl border border-[#E0E0E0] p-4 hover:shadow-md hover:border-primary-container/40 transition-all duration-200"
+                  >
+                    <div className="relative w-full h-28 mb-3">
+                      {img ? (
+                        <Image
+                          src={img}
+                          alt={cat.name}
+                          fill
+                          className="object-contain group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <div className="flex items-center justify-center h-full">
+                          <span className="material-symbols-outlined text-4xl text-gray-300">bolt</span>
+                        </div>
+                      )}
+                    </div>
+                    <span className="text-sm text-center text-gray-600 group-hover:text-primary-container transition-colors leading-tight">
+                      {cat.name}
                     </span>
-                    <p className="font-display font-bold text-sm text-on-surface uppercase leading-tight line-clamp-2">
-                      {p.name}
-                    </p>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

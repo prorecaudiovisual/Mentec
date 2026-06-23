@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050810"/>
+      <stop offset="100%" style="stop-color:#0d1020"/>
+    </linearGradient>
+    <!-- Thermal palette gradients -->
+    <linearGradient id="thermal1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#000080"/>
+      <stop offset="25%" style="stop-color:#0000ff"/>
+      <stop offset="50%" style="stop-color:#00ffff"/>
+      <stop offset="75%" style="stop-color:#ffff00"/>
+      <stop offset="100%" style="stop-color:#ff0000"/>
+    </linearGradient>
+    <radialGradient id="hot1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff4400;stop-opacity:0.9"/>
+      <stop offset="40%" style="stop-color:#ffaa00;stop-opacity:0.7"/>
+      <stop offset="70%" style="stop-color:#ffff00;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#00aaff;stop-opacity:0.1"/>
+    </radialGradient>
+    <radialGradient id="hot2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff2200;stop-opacity:0.95"/>
+      <stop offset="50%" style="stop-color:#ff8800;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#004488;stop-opacity:0.0"/>
+    </radialGradient>
+    <filter id="blur-heat">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur-slight">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)"/>
+
+  <!-- Thermal image frame -->
+  <rect x="80" y="60" width="460" height="340" rx="4" fill="#000814" stroke="#1a2a3a" stroke-width="2"/>
+
+  <!-- Thermal background - cool areas -->
+  <rect x="80" y="60" width="460" height="340" fill="#000050"/>
+
+  <!-- Cool blue areas -->
+  <rect x="80" y="60" width="460" height="340" fill="#00008a" opacity="0.4"/>
+
+  <!-- Warm areas - electrical components -->
+  <!-- Hot spot 1 - transformer/connection point -->
+  <ellipse cx="220" cy="180" rx="70" ry="55" fill="url(#hot1)" filter="url(#blur-heat)"/>
+  <ellipse cx="220" cy="180" rx="35" ry="28" fill="#ff4400" opacity="0.6" filter="url(#blur-slight)"/>
+  <ellipse cx="220" cy="180" rx="15" ry="12" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Hot spot 2 - connection -->
+  <ellipse cx="380" cy="220" rx="55" ry="45" fill="url(#hot2)" filter="url(#blur-heat)"/>
+  <ellipse cx="380" cy="220" rx="25" ry="20" fill="#ff2200" opacity="0.7" filter="url(#blur-slight)"/>
+  <ellipse cx="380" cy="220" rx="10" ry="8" fill="#ffeeaa" opacity="0.9"/>
+
+  <!-- Warm area 3 - wiring -->
+  <path d="M180,180 Q280,200 380,220" stroke="#ffaa00" stroke-width="8" fill="none" filter="url(#blur-slight)" opacity="0.6"/>
+  <path d="M180,180 Q280,200 380,220" stroke="#ff6600" stroke-width="4" fill="none" opacity="0.8"/>
+
+  <!-- Cool components -->
+  <rect x="130" y="130" width="40" height="80" fill="#0000cc" opacity="0.5"/>
+  <rect x="340" y="110" width="50" height="30" fill="#000088" opacity="0.6"/>
+  <rect x="410" y="280" width="60" height="50" fill="#00004a" opacity="0.7"/>
+
+  <!-- Medium warm areas -->
+  <ellipse cx="300" cy="300" rx="40" ry="30" fill="#884400" opacity="0.5" filter="url(#blur-slight)"/>
+  <ellipse cx="460" cy="150" rx="30" ry="25" fill="#663300" opacity="0.4" filter="url(#blur-slight)"/>
+
+  <!-- Thermal camera body -->
+  <g transform="translate(570, 140)">
+    <!-- Camera body -->
+    <rect x="0" y="30" width="160" height="100" rx="8" fill="#1a2235" stroke="#2a3a55" stroke-width="2"/>
+    <!-- Lens housing -->
+    <circle cx="50" cy="80" r="38" fill="#0a1525" stroke="#2a3a55" stroke-width="3"/>
+    <circle cx="50" cy="80" r="28" fill="#050e1a" stroke="#1a2840" stroke-width="2"/>
+    <circle cx="50" cy="80" r="18" fill="#000" stroke="#0a1020" stroke-width="1"/>
+    <!-- Thermal lens tint -->
+    <circle cx="50" cy="80" r="16" fill="#220011" opacity="0.8"/>
+    <circle cx="44" cy="74" r="5" fill="#440022" opacity="0.6"/>
+    <!-- Grip ridges -->
+    <rect x="148" y="38" width="8" height="8" rx="1" fill="#0f1828"/>
+    <rect x="148" y="50" width="8" height="8" rx="1" fill="#0f1828"/>
+    <rect x="148" y="62" width="8" height="8" rx="1" fill="#0f1828"/>
+    <!-- Screen on back -->
+    <rect x="90" y="42" width="55" height="40" rx="2" fill="#0a1020" stroke="#1a2840" stroke-width="1"/>
+    <!-- Mini thermal on screen -->
+    <rect x="92" y="44" width="51" height="36" fill="#000050"/>
+    <ellipse cx="117" cy="62" rx="18" ry="14" fill="#882200" opacity="0.8"/>
+    <ellipse cx="117" cy="62" rx="8" ry="6" fill="#ff4400" opacity="0.9"/>
+    <!-- Trigger -->
+    <path d="M0,90 Q-15,90 -15,110 Q-15,130 0,130 L0,90" fill="#141e2e" stroke="#2a3a55" stroke-width="1.5"/>
+    <!-- Indicator light -->
+    <circle cx="130" cy="38" r="4" fill="#ff4400"/>
+  </g>
+
+  <!-- Temperature scale bar -->
+  <rect x="555" y="310" width="20" height="160" fill="url(#thermal1)" rx="2"/>
+  <text x="582" y="318" font-family="monospace" font-size="10" fill="#ff4400">85°C</text>
+  <text x="582" y="358" font-family="monospace" font-size="10" fill="#ffff00">45°C</text>
+  <text x="582" y="398" font-family="monospace" font-size="10" fill="#00ffff">20°C</text>
+  <text x="582" y="470" font-family="monospace" font-size="10" fill="#0000ff">5°C</text>
+
+  <!-- Crosshair on hottest point -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.9">
+    <line x1="210" y1="180" x2="230" y2="180"/>
+    <line x1="220" y1="170" x2="220" y2="190"/>
+    <circle cx="220" cy="180" r="8" fill="none"/>
+  </g>
+  <text x="235" y="175" font-family="monospace" font-size="10" fill="#ff4400">84.3°C</text>
+
+  <!-- Crosshair on second hotspot -->
+  <g stroke="#ffaa00" stroke-width="1" opacity="0.8">
+    <line x1="370" y1="220" x2="390" y2="220"/>
+    <line x1="380" y1="210" x2="380" y2="230"/>
+    <circle cx="380" cy="220" r="8" fill="none"/>
+  </g>
+  <text x="395" y="215" font-family="monospace" font-size="10" fill="#ffaa00">71.8°C</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#050810" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#ff6622" letter-spacing="3">TERMOGRAFIA · ANÁLISE TÉRMICA</text>
+</svg>

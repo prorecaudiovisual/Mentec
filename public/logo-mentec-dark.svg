@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <!-- Lightning bolt -->
+  <polygon points="62,8 30,85 55,85 28,152 90,58 62,58" fill="#E8941A"/>
+
+  <!-- MENTEC wordmark -->
+  <text x="102" y="118" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="112" fill="#E8941A" letter-spacing="-2">MENTEC</text>
+
+  <!-- Tagline (white for dark backgrounds) -->
+  <text x="102" y="138" font-family="Arial, sans-serif" font-weight="400" font-size="16" fill="#ffffff" letter-spacing="0.2">Com. e Manut. de Equipamentos Elétricos Ltda</text>
+
+  <!-- Underline -->
+  <line x1="102" y1="143" x2="510" y2="143" stroke="#ffffff" stroke-width="1.5"/>
+</svg>

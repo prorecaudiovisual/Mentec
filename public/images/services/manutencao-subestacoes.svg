@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#060d1a"/>
+      <stop offset="80%" style="stop-color:#0c1828"/>
+      <stop offset="100%" style="stop-color:#060d14"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="strong-glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)"/>
+
+  <!-- Night sky with subtle gradient -->
+  <rect x="0" y="0" width="800" height="300" fill="#040a14" opacity="0.5"/>
+
+  <!-- Stars -->
+  <g fill="white" opacity="0.4">
+    <circle cx="80" cy="30" r="1"/><circle cx="150" cy="55" r="1.5"/><circle cx="240" cy="20" r="1"/>
+    <circle cx="350" cy="40" r="1"/><circle cx="450" cy="15" r="1.5"/><circle cx="560" cy="35" r="1"/>
+    <circle cx="680" cy="25" r="1"/><circle cx="730" cy="50" r="1.5"/><circle cx="120" cy="80" r="1"/>
+    <circle cx="620" cy="70" r="1"/>
+  </g>
+
+  <!-- Ground -->
+  <rect x="0" y="340" width="800" height="140" fill="#060e18"/>
+  <line x1="0" y1="340" x2="800" y2="340" stroke="#0d1e30" stroke-width="1.5"/>
+
+  <!-- Transmission towers left -->
+  <g stroke="#1a2840" stroke-width="2" fill="none">
+    <!-- Tower 1 -->
+    <line x1="80" y1="40" x2="80" y2="340"/>
+    <line x1="40" y1="140" x2="120" y2="140"/>
+    <line x1="50" y1="180" x2="110" y2="180"/>
+    <line x1="40" y1="140" x2="80" y2="340"/>
+    <line x1="120" y1="140" x2="80" y2="340"/>
+    <line x1="50" y1="180" x2="80" y2="220"/>
+    <line x1="110" y1="180" x2="80" y2="220"/>
+    <!-- Insulators -->
+    <line x1="40" y1="140" x2="30" y2="155"/>
+    <line x1="120" y1="140" x2="130" y2="155"/>
+    <circle cx="30" cy="158" r="4" fill="#1a2840"/>
+    <circle cx="130" cy="158" r="4" fill="#1a2840"/>
+  </g>
+
+  <!-- Transmission lines from towers -->
+  <path d="M30,162 Q140,180 200,185" fill="none" stroke="#2a4a6a" stroke-width="1.5"/>
+  <path d="M130,162 Q200,175 250,178" fill="none" stroke="#2a4a6a" stroke-width="1.5"/>
+
+  <!-- Substation fence -->
+  <rect x="180" y="250" width="440" height="90" fill="none" stroke="#1a3a5a" stroke-width="1" stroke-dasharray="5,3"/>
+  <!-- Fence posts -->
+  <g fill="#1a3a5a">
+    <rect x="179" y="248" width="3" height="12"/>
+    <rect x="219" y="248" width="3" height="12"/>
+    <rect x="259" y="248" width="3" height="12"/>
+    <rect x="299" y="248" width="3" height="12"/>
+    <rect x="339" y="248" width="3" height="12"/>
+    <rect x="379" y="248" width="3" height="12"/>
+    <rect x="419" y="248" width="3" height="12"/>
+    <rect x="459" y="248" width="3" height="12"/>
+    <rect x="499" y="248" width="3" height="12"/>
+    <rect x="539" y="248" width="3" height="12"/>
+    <rect x="579" y="248" width="3" height="12"/>
+    <rect x="619" y="248" width="3" height="12"/>
+  </g>
+
+  <!-- Main transformer 1 -->
+  <rect x="230" y="200" width="100" height="140" rx="4" fill="#0d1e30" stroke="#2a4a6a" stroke-width="2"/>
+  <!-- Transformer cooling fins -->
+  <g fill="#0a1828" stroke="#1a3a5a" stroke-width="1">
+    <rect x="218" y="210" width="10" height="120" rx="1"/>
+    <rect x="222" y="215" width="6" height="110" rx="1" fill="#0d2040"/>
+    <rect x="332" y="210" width="10" height="120" rx="1"/>
+    <rect x="334" y="215" width="6" height="110" rx="1" fill="#0d2040"/>
+  </g>
+  <!-- HV bushings top -->
+  <rect x="248" y="175" width="14" height="30" rx="3" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <rect x="270" y="175" width="14" height="30" rx="3" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <rect x="292" y="175" width="14" height="30" rx="3" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <!-- Ribs on bushings -->
+  <g fill="#0d2040">
+    <rect x="246" y="180" width="18" height="3" rx="1"/><rect x="246" y="188" width="18" height="3" rx="1"/>
+    <rect x="268" y="180" width="18" height="3" rx="1"/><rect x="268" y="188" width="18" height="3" rx="1"/>
+    <rect x="290" y="180" width="18" height="3" rx="1"/><rect x="290" y="188" width="18" height="3" rx="1"/>
+  </g>
+  <!-- LV bushings bottom side -->
+  <rect x="250" y="340" width="10" height="25" rx="2" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <rect x="268" y="340" width="10" height="25" rx="2" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <rect x="286" y="340" width="10" height="25" rx="2" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <!-- Nameplate -->
+  <rect x="248" y="250" width="64" height="40" rx="2" fill="#0a1828" stroke="#2a4a6a" stroke-width="1"/>
+  <text x="280" y="267" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">500 kVA</text>
+  <text x="280" y="280" text-anchor="middle" font-family="monospace" font-size="7" fill="#2a4a6a">13,8/0,38kV</text>
+  <!-- Oil conservator tank on top -->
+  <ellipse cx="280" cy="195" rx="25" ry="10" fill="#0d1e30" stroke="#2a4a6a" stroke-width="1.5"/>
+
+  <!-- Main transformer 2 (duplicate, offset) -->
+  <rect x="400" y="200" width="100" height="140" rx="4" fill="#0d1e30" stroke="#2a4a6a" stroke-width="2"/>
+  <g fill="#0a1828" stroke="#1a3a5a" stroke-width="1">
+    <rect x="388" y="210" width="10" height="120" rx="1"/>
+    <rect x="502" y="210" width="10" height="120" rx="1"/>
+  </g>
+  <rect x="418" y="175" width="14" height="30" rx="3" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <rect x="440" y="175" width="14" height="30" rx="3" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <rect x="462" y="175" width="14" height="30" rx="3" fill="#1a3050" stroke="#2a4a6a" stroke-width="1"/>
+  <g fill="#0d2040">
+    <rect x="416" y="180" width="18" height="3" rx="1"/><rect x="416" y="188" width="18" height="3" rx="1"/>
+    <rect x="438" y="180" width="18" height="3" rx="1"/><rect x="438" y="188" width="18" height="3" rx="1"/>
+    <rect x="460" y="180" width="18" height="3" rx="1"/><rect x="460" y="188" width="18" height="3" rx="1"/>
+  </g>
+  <rect x="418" y="250" width="64" height="40" rx="2" fill="#0a1828" stroke="#2a4a6a" stroke-width="1"/>
+  <text x="450" y="267" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">1000 kVA</text>
+  <text x="450" y="280" text-anchor="middle" font-family="monospace" font-size="7" fill="#2a4a6a">13,8/0,38kV</text>
+  <ellipse cx="450" cy="195" rx="25" ry="10" fill="#0d1e30" stroke="#2a4a6a" stroke-width="1.5"/>
+
+  <!-- Live wires glowing -->
+  <path d="M255,175 Q200,140 130,162" fill="none" stroke="#4a9aff" stroke-width="1.5" filter="url(#glow)" opacity="0.7"/>
+  <path d="M445,175 Q390,150 330,162" fill="none" stroke="#4a9aff" stroke-width="1.5" filter="url(#glow)" opacity="0.7"/>
+
+  <!-- HV Disconnect switches -->
+  <g stroke="#C4561E" stroke-width="1.5" fill="none" filter="url(#glow)">
+    <line x1="200" y1="155" x2="230" y2="175"/>
+    <circle cx="200" cy="155" r="4" fill="#C4561E"/>
+    <line x1="370" y1="155" x2="400" y2="175"/>
+    <circle cx="370" cy="155" r="4" fill="#C4561E"/>
+  </g>
+
+  <!-- Control room building -->
+  <rect x="570" y="220" width="140" height="120" rx="3" fill="#0d1828" stroke="#2a3a5a" stroke-width="2"/>
+  <rect x="570" y="220" width="140" height="20" fill="#1a2840"/>
+  <text x="640" y="234" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">SALA DE CONTROLE</text>
+  <!-- Windows lit up -->
+  <rect x="585" y="250" width="30" height="25" rx="1" fill="#1a3a1a" stroke="#2a4a2a" stroke-width="1"/>
+  <rect x="625" y="250" width="30" height="25" rx="1" fill="#2a3a10" stroke="#4a5a20" stroke-width="1"/>
+  <rect x="665" y="250" width="30" height="25" rx="1" fill="#1a3a1a" stroke="#2a4a2a" stroke-width="1"/>
+  <!-- Door -->
+  <rect x="615" y="305" width="50" height="35" rx="2" fill="#0a1828" stroke="#1a2840" stroke-width="1"/>
+  <circle cx="660" cy="322" r="3" fill="#C4561E"/>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#060d1a" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#4a9aff" letter-spacing="3">MANUTENÇÃO DE SUBESTAÇÕES</text>
+</svg>

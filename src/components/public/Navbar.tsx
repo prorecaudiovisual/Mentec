@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -41,20 +42,18 @@ export default function Navbar() {
           : "bg-[#FDFAF5] border-b border-[#E3DAD0] shadow-sm"
       }`}
     >
-      <div className="max-w-[1280px] mx-auto w-full px-8 h-[72px] flex justify-between items-center">
+      <div className="max-w-[1280px] mx-auto w-full px-8 h-[128px] flex justify-between items-center">
 
-        {/* Wordmark */}
-        <Link href="/" className="flex flex-col items-center group shrink-0">
-          <span
-            className={`font-display text-[36px] font-bold tracking-[0.18em] uppercase leading-none transition-colors duration-300 group-hover:text-primary-container ${
-              dark ? "text-white" : "text-[#111827]"
-            }`}
-          >
-            MENTEC
-          </span>
-          <span className="font-heading text-[8px] uppercase tracking-[0.2em] text-primary-container leading-none hidden sm:block w-full text-center">
-            EQUIPAMENTOS ELÉTRICOS
-          </span>
+        {/* Logo */}
+        <Link href="/" className="shrink-0 group">
+          <Image
+            src={dark ? "/MENTEC_logo_texto_branco.png" : "/MENTEC_logo.png"}
+            alt="Mentec"
+            width={220}
+            height={96}
+            className="h-32 w-auto transition-opacity duration-300 group-hover:opacity-80"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

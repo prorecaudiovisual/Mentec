@@ -75,9 +75,9 @@ const config: Config = {
         "gutter": "24px",
       },
       fontFamily: {
-        sans:    ["var(--font-dm-sans)"],
-        heading: ["var(--font-dm-mono)"],
-        display: ["var(--font-barlow)"],
+        sans:    ["var(--font-figtree)"],
+        heading: ["var(--font-figtree)"],
+        display: ["var(--font-archivo)"],
       },
       fontSize: {
         h1:          ["48px",  { lineHeight: "1.05", letterSpacing: "-0.01em", fontWeight: "700" }],

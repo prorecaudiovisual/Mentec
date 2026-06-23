@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050c18"/>
+      <stop offset="100%" style="stop-color:#0c1828"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="chart-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#C4561E;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#C4561E;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="pred-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00aaff;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#00aaff;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)"/>
+
+  <!-- Dashboard frame -->
+  <rect x="40" y="40" width="720" height="360" rx="8" fill="#080f1e" stroke="#1a2a40" stroke-width="1.5"/>
+
+  <!-- Top bar -->
+  <rect x="40" y="40" width="720" height="40" rx="8" fill="#0d1a30"/>
+  <rect x="40" y="64" width="720" height="16" fill="#0d1a30"/>
+  <circle cx="60" cy="60" r="6" fill="#ff5f57"/>
+  <circle cx="78" cy="60" r="6" fill="#febc2e"/>
+  <circle cx="96" cy="60" r="6" fill="#28c840"/>
+  <text x="400" y="65" text-anchor="middle" font-family="monospace" font-size="11" fill="#4a7aaa" letter-spacing="2">SISTEMA DE MONITORAMENTO PREDITIVO</text>
+
+  <!-- Left column - gauges -->
+  <rect x="55" y="95" width="160" height="90" rx="4" fill="#0a1525" stroke="#1a2840" stroke-width="1"/>
+  <text x="135" y="112" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a7aaa">TEMPERATURA</text>
+  <!-- Gauge arc -->
+  <path d="M75,165 A50,50 0 0,1 195,165" fill="none" stroke="#1a2840" stroke-width="10"/>
+  <path d="M75,165 A50,50 0 0,1 158,122" fill="none" stroke="#C4561E" stroke-width="10" filter="url(#glow)"/>
+  <text x="135" y="162" text-anchor="middle" font-family="monospace" font-size="18" fill="#C4561E">68°</text>
+  <text x="135" y="176" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">NORMAL &lt;80°C</text>
+
+  <rect x="55" y="195" width="160" height="90" rx="4" fill="#0a1525" stroke="#1a2840" stroke-width="1"/>
+  <text x="135" y="212" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a7aaa">VIBRAÇÃO</text>
+  <path d="M75,265 A50,50 0 0,1 195,265" fill="none" stroke="#1a2840" stroke-width="10"/>
+  <path d="M75,265 A50,50 0 0,1 135,215" fill="none" stroke="#aaff00" stroke-width="10" filter="url(#glow)"/>
+  <text x="135" y="262" text-anchor="middle" font-family="monospace" font-size="18" fill="#aaff00">2.1</text>
+  <text x="135" y="276" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">mm/s RMS</text>
+
+  <rect x="55" y="295" width="160" height="90" rx="4" fill="#0a1525" stroke="#1a2840" stroke-width="1"/>
+  <text x="135" y="312" text-anchor="middle" font-family="monospace" font-size="9" fill="#4a7aaa">CORRENTE</text>
+  <path d="M75,365 A50,50 0 0,1 195,365" fill="none" stroke="#1a2840" stroke-width="10"/>
+  <path d="M75,365 A50,50 0 0,1 185,335" fill="none" stroke="#00ccff" stroke-width="10" filter="url(#glow)"/>
+  <text x="135" y="362" text-anchor="middle" font-family="monospace" font-size="18" fill="#00ccff">89%</text>
+  <text x="135" y="376" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">CARGA</text>
+
+  <!-- Main chart area -->
+  <rect x="230" y="95" width="520" height="295" rx="4" fill="#060e1c" stroke="#1a2840" stroke-width="1"/>
+
+  <!-- Chart grid -->
+  <g stroke="#0d2035" stroke-width="1">
+    <line x1="230" y1="155" x2="750" y2="155"/>
+    <line x1="230" y1="215" x2="750" y2="215"/>
+    <line x1="230" y1="275" x2="750" y2="275"/>
+    <line x1="230" y1="335" x2="750" y2="335"/>
+    <line x1="318" y1="95" x2="318" y2="390"/>
+    <line x1="406" y1="95" x2="406" y2="390"/>
+    <line x1="494" y1="95" x2="494" y2="390"/>
+    <line x1="582" y1="95" x2="582" y2="390"/>
+    <line x1="670" y1="95" x2="670" y2="390"/>
+  </g>
+
+  <!-- Chart axis labels -->
+  <text x="238" y="112" font-family="monospace" font-size="9" fill="#4a7aaa">HISTÓRICO TEMPERATURA (°C)</text>
+  <text x="236" y="160" font-family="monospace" font-size="8" fill="#2a4a6a">80</text>
+  <text x="236" y="220" font-family="monospace" font-size="8" fill="#2a4a6a">60</text>
+  <text x="236" y="280" font-family="monospace" font-size="8" fill="#2a4a6a">40</text>
+  <text x="236" y="340" font-family="monospace" font-size="8" fill="#2a4a6a">20</text>
+
+  <!-- Historical data line -->
+  <path d="M260,310 L318,295 L350,300 L406,285 L440,278 L494,272 L520,268 L582,262 L610,258 L670,248"
+    fill="none" stroke="#4a9aff" stroke-width="2"/>
+
+  <!-- Fill under historical line -->
+  <path d="M260,310 L318,295 L350,300 L406,285 L440,278 L494,272 L520,268 L582,262 L610,258 L670,248 L670,390 L260,390 Z"
+    fill="url(#pred-fill)"/>
+
+  <!-- Predictive trend line (dashed, forward) -->
+  <path d="M670,248 L710,235 L750,215"
+    fill="none" stroke="#00aaff" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Alert threshold line -->
+  <line x1="230" y1="155" x2="750" y2="155" stroke="#ff4422" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.7" filter="url(#glow)"/>
+  <text x="698" y="151" font-family="monospace" font-size="9" fill="#ff4422">LIMITE</text>
+
+  <!-- Anomaly spike -->
+  <path d="M494,272 L500,195 L506,272" fill="none" stroke="#ffaa00" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="500" cy="195" r="5" fill="#ffaa00" filter="url(#glow)"/>
+  <!-- Alert annotation -->
+  <line x1="500" y1="190" x2="520" y2="165" stroke="#ffaa00" stroke-width="1"/>
+  <rect x="520" y="150" width="80" height="28" rx="3" fill="#1a2010" stroke="#ffaa00" stroke-width="1"/>
+  <text x="560" y="163" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffaa00">ANOMALIA</text>
+  <text x="560" y="174" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffaa00">DETECTADA</text>
+
+  <!-- Prediction zone shading -->
+  <rect x="670" y="95" width="80" height="295" fill="#001830" opacity="0.3"/>
+  <text x="710" y="112" text-anchor="middle" font-family="monospace" font-size="8" fill="#00aaff">PREVISÃO</text>
+
+  <!-- Status bars bottom -->
+  <g transform="translate(230, 400)">
+    <rect x="0" y="0" width="520" height="0" fill="none"/>
+  </g>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#050c18" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#aaff00" letter-spacing="3">MANUTENÇÃO PREDITIVA · MONITORAMENTO</text>
+</svg>

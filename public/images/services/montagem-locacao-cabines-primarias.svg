@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#070d1a"/>
+      <stop offset="100%" style="stop-color:#101e30"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg)"/>
+
+  <!-- Assembly diagram - isometric-style cabinet -->
+  <!-- Floor -->
+  <rect x="0" y="390" width="800" height="90" fill="#060e18"/>
+  <line x1="0" y1="390" x2="800" y2="390" stroke="#1a2840" stroke-width="1"/>
+
+  <!-- Cubicle group - entry cubicle -->
+  <rect x="60" y="100" width="140" height="290" rx="3" fill="#0f1e32" stroke="#2a4a7a" stroke-width="2.5"/>
+  <rect x="68" y="110" width="124" height="265" rx="2" fill="#0a1525" stroke="#1a3050" stroke-width="1"/>
+  <!-- Entry section label -->
+  <rect x="68" y="110" width="124" height="24" fill="#0d2040"/>
+  <text x="130" y="126" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a8aaa">ENTRADA</text>
+  <!-- Disconnect switch -->
+  <rect x="80" y="144" width="100" height="40" rx="2" fill="#0a1020" stroke="#2a4a7a" stroke-width="1"/>
+  <text x="130" y="168" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">CHAVE SECT.</text>
+  <!-- Knife switch graphic -->
+  <line x1="100" y1="155" x2="115" y2="155" stroke="#C4561E" stroke-width="2"/>
+  <line x1="115" y1="155" x2="115" y2="148" stroke="#C4561E" stroke-width="2"/>
+  <line x1="145" y1="155" x2="160" y2="155" stroke="#C4561E" stroke-width="2"/>
+  <!-- Cable entry area -->
+  <rect x="80" y="195" width="100" height="35" rx="2" fill="#0a1020" stroke="#1a2840" stroke-width="1"/>
+  <text x="130" y="215" text-anchor="middle" font-family="monospace" font-size="7" fill="#2a4a6a">ENTRADA CABO</text>
+  <line x1="90" y1="203" x2="90" y2="224" stroke="#C4561E" stroke-width="2"/>
+  <line x1="100" y1="203" x2="100" y2="224" stroke="#4a9aff" stroke-width="2"/>
+  <line x1="110" y1="203" x2="110" y2="224" stroke="#aaff00" stroke-width="2"/>
+  <!-- Meters -->
+  <rect x="80" y="240" width="45" height="45" rx="2" fill="#061020" stroke="#1a3a5a" stroke-width="1"/>
+  <circle cx="102" cy="262" r="16" fill="#0a1828" stroke="#2a4a6a" stroke-width="1"/>
+  <line x1="102" y1="262" x2="102" y2="250" stroke="#C4561E" stroke-width="2"/>
+  <line x1="102" y1="262" x2="112" y2="265" stroke="#4a9aff" stroke-width="1.5"/>
+  <rect x="135" y="240" width="45" height="45" rx="2" fill="#061020" stroke="#1a3a5a" stroke-width="1"/>
+  <circle cx="157" cy="262" r="16" fill="#0a1828" stroke="#2a4a6a" stroke-width="1"/>
+  <line x1="157" y1="262" x2="162" y2="250" stroke="#aaff00" stroke-width="2"/>
+  <!-- Signage plates -->
+  <rect x="90" y="298" width="80" height="18" rx="2" fill="#220000" stroke="#aa0000" stroke-width="1"/>
+  <text x="130" y="311" text-anchor="middle" font-family="monospace" font-size="7" fill="#ff4422">PERIGO 13.8kV</text>
+
+  <!-- Cubicle 2 - measurement -->
+  <rect x="210" y="100" width="140" height="290" rx="3" fill="#0f1e32" stroke="#2a4a7a" stroke-width="2.5"/>
+  <rect x="218" y="110" width="124" height="265" rx="2" fill="#0a1525" stroke="#1a3050" stroke-width="1"/>
+  <rect x="218" y="110" width="124" height="24" fill="#0d2040"/>
+  <text x="280" y="126" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a8aaa">MEDIÇÃO</text>
+  <!-- Potential transformer -->
+  <rect x="228" y="144" width="104" height="50" rx="2" fill="#0a1020" stroke="#2a4a7a" stroke-width="1"/>
+  <text x="280" y="160" text-anchor="middle" font-family="monospace" font-size="7" fill="#4a7aaa">TRAFO POTENCIAL</text>
+  <!-- TP symbol -->
+  <circle cx="258" cy="176" rx="10" ry="10" fill="none" stroke="#4a9aff" stroke-width="1.5"/>
+  <circle cx="258" cy="176" rx="6" ry="6" fill="none" stroke="#4a9aff" stroke-width="1"/>
+  <circle cx="290" cy="176" rx="10" ry="10" fill="none" stroke="#4a9aff" stroke-width="1.5"/>
+  <!-- Current transformer -->
+  <rect x="228" y="204" width="104" height="40" rx="2" fill="#0a1020" stroke="#2a4a7a" stroke-width="1"/>
+  <text x="280" y="222" text-anchor="middle" font-family="monospace" font-size="7" fill="#4a7aaa">TRAFO CORRENTE</text>
+  <line x1="240" y1="232" x2="320" y2="232" stroke="#C4561E" stroke-width="2"/>
+  <ellipse cx="262" cy="232" rx="10" ry="6" fill="none" stroke="#4a9aff" stroke-width="1.5"/>
+  <ellipse cx="295" cy="232" rx="10" ry="6" fill="none" stroke="#4a9aff" stroke-width="1.5"/>
+  <!-- Energy meter digital -->
+  <rect x="228" y="254" width="104" height="55" rx="2" fill="#061020" stroke="#1a3a5a" stroke-width="1"/>
+  <rect x="234" y="260" width="92" height="35" rx="1" fill="#000a18"/>
+  <text x="280" y="274" text-anchor="middle" font-family="monospace" font-size="9" fill="#00ff88">00842.3</text>
+  <text x="280" y="287" text-anchor="middle" font-family="monospace" font-size="7" fill="#2a6a2a">kWh</text>
+
+  <!-- Cubicle 3 - protection/breaker -->
+  <rect x="360" y="80" width="160" height="310" rx="3" fill="#0f1e32" stroke="#C4561E" stroke-width="2.5"/>
+  <rect x="368" y="90" width="144" height="290" rx="2" fill="#0a1525" stroke="#1a3050" stroke-width="1"/>
+  <rect x="368" y="90" width="144" height="24" fill="#1a0a0a"/>
+  <text x="440" y="106" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E">DISJUNTOR MÉD. T.</text>
+  <!-- Vacuum breaker large -->
+  <rect x="378" y="124" width="124" height="120" rx="4" fill="#0a1020" stroke="#C4561E" stroke-width="1.5"/>
+  <!-- Three vacuum bottles -->
+  <ellipse cx="408" cy="175" rx="16" ry="24" fill="#0a1828" stroke="#2a4a7a" stroke-width="2"/>
+  <ellipse cx="440" cy="175" rx="16" ry="24" fill="#0a1828" stroke="#2a4a7a" stroke-width="2"/>
+  <ellipse cx="472" cy="175" rx="16" ry="24" fill="#0a1828" stroke="#2a4a7a" stroke-width="2"/>
+  <!-- Inner contacts -->
+  <ellipse cx="408" cy="165" rx="8" ry="6" fill="#0d2040" stroke="#1a4a7a" stroke-width="1"/>
+  <ellipse cx="440" cy="165" rx="8" ry="6" fill="#0d2040" stroke="#1a4a7a" stroke-width="1"/>
+  <ellipse cx="472" cy="165" rx="8" ry="6" fill="#0d2040" stroke="#1a4a7a" stroke-width="1"/>
+  <!-- Vacuum label -->
+  <text x="440" y="135" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E">VÁCUO</text>
+  <!-- Actuator mechanism -->
+  <rect x="390" y="256" width="100" height="30" rx="2" fill="#0d1528" stroke="#2a3a55" stroke-width="1"/>
+  <text x="440" y="274" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">ACIONAMENTO</text>
+  <!-- Relay -->
+  <rect x="378" y="296" width="124" height="50" rx="2" fill="#061020" stroke="#1a3a5a" stroke-width="1"/>
+  <text x="440" y="312" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a9aff">REMP-100</text>
+  <!-- Relay display -->
+  <rect x="390" y="318" width="100" height="22" rx="1" fill="#000a18"/>
+  <text x="440" y="332" text-anchor="middle" font-family="monospace" font-size="8" fill="#00ff88">PROTEGIDO</text>
+
+  <!-- Cubicle 4 - transformer connection -->
+  <rect x="530" y="100" width="130" height="290" rx="3" fill="#0f1e32" stroke="#2a4a7a" stroke-width="2"/>
+  <rect x="538" y="110" width="114" height="265" rx="2" fill="#0a1525" stroke="#1a3050" stroke-width="1"/>
+  <rect x="538" y="110" width="114" height="24" fill="#0d2040"/>
+  <text x="595" y="126" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a8aaa">TRAFO</text>
+  <!-- Transformer symbol -->
+  <g stroke="#4a9aff" stroke-width="1.5" fill="none">
+    <circle cx="577" cy="200" r="22"/>
+    <circle cx="577" cy="240" r="22"/>
+    <!-- Primary coil indicator -->
+    <path d="M555,205 Q565,195 575,205 Q585,215 595,205" fill="none" stroke="#C4561E" stroke-width="1.5"/>
+    <!-- Secondary -->
+    <path d="M555,245 Q565,235 575,245 Q585,255 595,245" fill="none" stroke="#4a9aff" stroke-width="1.5"/>
+  </g>
+  <text x="595" y="290" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a7aaa">500 kVA</text>
+  <text x="595" y="303" text-anchor="middle" font-family="monospace" font-size="7" fill="#2a4a6a">13.8kV/380V</text>
+
+  <!-- Interconnecting busbars top -->
+  <rect x="60" y="83" width="600" height="12" rx="2" fill="#C4561E" opacity="0.15" stroke="#C4561E" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="360" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4561E" opacity="0.7">BARRAMENTO 13,8 kV</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="430" width="800" height="50" fill="#070d1a" opacity="0.9"/>
+  <text x="400" y="461" text-anchor="middle" font-family="monospace" font-size="13" fill="#C4561E" letter-spacing="3">CABINES PRIMÁRIAS · MONTAGEM</text>
+</svg>
