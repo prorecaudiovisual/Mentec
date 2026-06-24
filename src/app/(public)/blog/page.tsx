@@ -31,7 +31,7 @@ export default async function BlogPage() {
           </div>
           <h1
             className="font-display font-bold text-white uppercase leading-[0.9]"
-            style={{ fontSize: "clamp(60px, 7vw, 96px)" }}
+            style={{ fontSize: "clamp(34px, 8vw, 96px)" }}
           >
             Blog &amp; Notícias
           </h1>

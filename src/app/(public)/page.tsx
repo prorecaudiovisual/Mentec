@@ -54,7 +54,7 @@ export default async function HomePage() {
 
             <h1
               className="anim-fade-up font-display font-bold text-white uppercase leading-[0.9] mb-8"
-              style={{ fontSize: "clamp(72px, 8vw, 112px)", animationDelay: "0.15s" }}
+              style={{ fontSize: "clamp(40px, 11vw, 112px)", animationDelay: "0.15s" }}
             >
               Potência<br />
               <span className="text-primary-container">Que Move</span><br />
@@ -121,7 +121,7 @@ export default async function HomePage() {
             <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary block mb-3">
               Especialidades
             </span>
-            <h2 className="font-display font-bold text-5xl lg:text-6xl text-on-surface uppercase leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-6xl text-on-surface uppercase leading-none">
               Serviços de Campo
             </h2>
           </div>
@@ -140,7 +140,7 @@ export default async function HomePage() {
             <div className="absolute inset-0 bg-grid opacity-70 pointer-events-none" aria-hidden="true" />
             <div className="relative z-10">
               <span className="material-symbols-outlined text-4xl text-primary-container mb-6 block">engineering</span>
-              <h3 className="font-display font-bold text-4xl text-white uppercase mb-4 leading-tight">
+              <h3 className="font-display font-bold text-3xl sm:text-4xl text-white uppercase mb-4 leading-tight">
                 Manutenção Preditiva
               </h3>
               <p className="text-[#C8BFB5] text-sm leading-relaxed max-w-sm">
@@ -204,7 +204,7 @@ export default async function HomePage() {
                 <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container block mb-3">
                   Equipamentos
                 </span>
-                <h2 className="font-display font-bold text-5xl lg:text-6xl text-white uppercase leading-none">
+                <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-6xl text-white uppercase leading-none">
                   Produtos em Destaque
                 </h2>
               </div>
@@ -283,7 +283,7 @@ export default async function HomePage() {
             <span className="relative font-heading text-[9px] uppercase tracking-[0.22em] text-primary block mb-4">
               Nossa História
             </span>
-            <h2 className="relative font-display font-bold text-5xl lg:text-7xl text-on-surface uppercase mb-8 leading-[0.9]">
+            <h2 className="relative font-display font-bold text-3xl sm:text-5xl lg:text-7xl text-on-surface uppercase mb-8 leading-[0.9]">
               Décadas de<br />
               <span className="text-primary-container">Autoridade</span><br />
               Técnica
@@ -343,7 +343,7 @@ export default async function HomePage() {
         />
         <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="text-center md:text-left">
-            <h2 className="font-display font-bold text-5xl lg:text-7xl text-white uppercase mb-4 leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-5xl lg:text-7xl text-white uppercase mb-4 leading-none">
               Infraestrutura em<br />Mãos Seguras
             </h2>
             <p className="text-white/75 text-body-lg max-w-md">

@@ -98,8 +98,8 @@ export default async function ProdutoPage({
             </div>
 
             <h1
-              className="font-display font-bold text-white mb-4 leading-[0.9]"
-              style={{ fontSize: "clamp(48px, 5vw, 72px)" }}
+              className="font-display font-bold text-white mb-4 leading-[0.95] break-words hyphens-auto"
+              style={{ fontSize: "clamp(28px, 7vw, 72px)" }}
             >
               {product.name}
             </h1>
@@ -138,7 +138,7 @@ export default async function ProdutoPage({
                   Especificações Técnicas
                 </span>
               </div>
-              <h2 className="font-display font-bold text-4xl text-white mb-10 leading-none">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-10 leading-none">
                 {detalhesTitulo}
               </h2>
               <table className="w-full border-collapse">
@@ -178,15 +178,15 @@ export default async function ProdutoPage({
               <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container block mb-3">
                 Onde é utilizado
               </span>
-              <h2 className="font-display font-bold text-4xl lg:text-5xl text-white uppercase leading-none">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white uppercase leading-none">
                 Aplicações
               </h2>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               {aplicacoes.map((app) => (
                 <div
                   key={app.label}
-                  className="flex flex-col items-center gap-4 p-6 border border-white/6 bg-[#1A2535] hover:border-primary-container/30 hover:bg-[#1E2D42] transition-all duration-200 group"
+                  className="w-36 sm:w-40 flex flex-col items-center gap-4 p-6 border border-white/6 bg-[#1A2535] hover:border-primary-container/30 hover:bg-[#1E2D42] transition-all duration-200 group"
                 >
                   <span className="material-symbols-outlined text-3xl text-white/40 group-hover:text-primary-container transition-colors duration-200">
                     {app.icon}

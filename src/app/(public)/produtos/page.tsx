@@ -59,7 +59,7 @@ export default async function ProdutosPage() {
           </div>
           <h1
             className="font-display font-bold text-white uppercase leading-[0.9] max-w-2xl"
-            style={{ fontSize: "clamp(60px, 7vw, 96px)" }}
+            style={{ fontSize: "clamp(34px, 8vw, 96px)" }}
           >
             Nossos Produtos
           </h1>
@@ -206,7 +206,7 @@ export default async function ProdutosPage() {
           <div className="absolute inset-0 bg-grid opacity-70" aria-hidden="true" />
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
             <div>
-              <h2 className="font-display font-bold text-5xl lg:text-6xl text-white uppercase mb-4 leading-none">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-6xl text-white uppercase mb-4 leading-none">
                 Pronto para Equipar<br />sua Instalação?
               </h2>
               <p className="text-[#C8BFB5] text-body-lg max-w-lg leading-relaxed">

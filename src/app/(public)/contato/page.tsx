@@ -22,7 +22,7 @@ export default function ContatoPage() {
           </div>
           <h1
             className="font-display font-bold text-white uppercase leading-[0.9] max-w-2xl"
-            style={{ fontSize: "clamp(52px, 6vw, 80px)" }}
+            style={{ fontSize: "clamp(32px, 7vw, 80px)" }}
           >
             Entre em Contato com Nossa Equipe
           </h1>
@@ -121,7 +121,7 @@ export default function ContatoPage() {
                 <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary block mb-2">
                   Formulário de Contato
                 </span>
-                <h2 className="font-display font-bold text-4xl text-on-surface uppercase leading-none">
+                <h2 className="font-display font-bold text-3xl sm:text-4xl text-on-surface uppercase leading-none">
                   Envie sua Solicitação
                 </h2>
               </div>

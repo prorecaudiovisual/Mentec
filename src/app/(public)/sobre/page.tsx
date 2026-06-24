@@ -25,7 +25,7 @@ export default function SobrePage() {
           </div>
           <h1
             className="font-display font-bold text-white uppercase leading-[0.9] max-w-3xl"
-            style={{ fontSize: "clamp(60px, 7vw, 96px)" }}
+            style={{ fontSize: "clamp(34px, 8vw, 96px)" }}
           >
             Engenharia de Precisão Desde o Primeiro Dia
           </h1>
@@ -39,7 +39,7 @@ export default function SobrePage() {
             <span className="inline-block px-3 py-1 bg-surface-container border border-[#E3DAD0] font-heading text-[9px] uppercase tracking-[0.2em] text-secondary mb-8">
               Perfil Corporativo
             </span>
-            <h2 className="font-display font-bold text-5xl text-on-surface mb-8 uppercase leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-on-surface mb-8 uppercase leading-none">
               Um Legado de{" "}
               <span className="text-primary-container">Excelência Técnica</span>
             </h2>
@@ -86,7 +86,7 @@ export default function SobrePage() {
             <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container block mb-3">
               Nosso Núcleo
             </span>
-            <h2 className="font-display font-bold text-5xl lg:text-6xl uppercase text-white leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-6xl uppercase text-white leading-none">
               Missão &amp; Filosofia
             </h2>
           </div>
@@ -133,7 +133,7 @@ export default function SobrePage() {
             <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary block mb-3">
               Normas
             </span>
-            <h2 className="font-display font-bold text-5xl uppercase text-on-surface mb-6 leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl uppercase text-on-surface mb-6 leading-none">
               Conformidade &amp; Padrões
             </h2>
             <p className="text-secondary leading-relaxed text-sm max-w-xs">
@@ -170,7 +170,7 @@ export default function SobrePage() {
         <div className="grain bg-[#111827] text-white p-12 lg:p-20 flex flex-col lg:flex-row justify-between items-center gap-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-grid opacity-60" aria-hidden="true" />
           <div className="text-center lg:text-left relative z-10">
-            <h2 className="font-display font-bold text-5xl lg:text-6xl uppercase mb-5 leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-6xl uppercase mb-5 leading-none">
               Parceria com<br />Excelência Técnica
             </h2>
             <p className="text-[#C8BFB5] text-body-lg max-w-md leading-relaxed">
