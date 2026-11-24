@@ -22,13 +22,17 @@ export default async function HomePage() {
         {/* Background video (low opacity) */}
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-[0.10] pointer-events-none z-0"
-          src="/hero-bg.mp4"
+          poster="/hero-reel-poster.webp"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           aria-hidden="true"
-        />
+        >
+          <source src="/hero-reel.webm" type="video/webm" />
+          <source src="/hero-reel.mp4" type="video/mp4" />
+        </video>
         {/* Vertical accent line */}
         <div
           className="absolute left-8 top-0 bottom-0 w-px pointer-events-none hidden lg:block"
