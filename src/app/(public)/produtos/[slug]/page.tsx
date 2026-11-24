@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { APLICACOES } from "@/lib/aplicacoes";
 import ProductGallery from "@/components/public/ProductGallery";
+import ProductHeroCarousel from "@/components/public/ProductHeroCarousel";
 
 export const dynamic = "force-dynamic";
 
@@ -69,15 +70,8 @@ export default async function ProdutoPage({
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
           {/* Product image — preenche toda a lateral esquerda */}
           <div className="relative bg-white min-h-[340px] lg:min-h-[600px] flex items-center justify-center overflow-hidden lg:[clip-path:polygon(0_0,88%_0,100%_100%,0_100%)]">
-            {product.imageUrls[0] ? (
-              <Image
-                src={product.imageUrls[0]}
-                alt={product.name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-contain p-6 lg:p-12"
-                priority
-              />
+            {product.imageUrls.length > 0 ? (
+              <ProductHeroCarousel images={product.imageUrls} productName={product.name} />
             ) : (
               <span className="material-symbols-outlined text-black/10" style={{ fontSize: "100px" }}>bolt</span>
             )}
