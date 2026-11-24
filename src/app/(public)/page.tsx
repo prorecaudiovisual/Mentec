@@ -21,7 +21,7 @@ export default async function HomePage() {
       <section className="grain bg-grid relative min-h-[94vh] flex flex-col justify-center bg-inverse-surface overflow-hidden">
         {/* Background video (low opacity) */}
         <video
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.10] pointer-events-none z-0"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.10] lg:opacity-[0.35] pointer-events-none z-0"
           poster="/hero-reel-poster.webp"
           autoPlay
           muted
@@ -30,8 +30,8 @@ export default async function HomePage() {
           preload="auto"
           aria-hidden="true"
         >
-          <source src="/hero-reel.webm" type="video/webm" />
-          <source src="/hero-reel.mp4" type="video/mp4" />
+          <source src="/hero-loop.webm" type="video/webm" />
+          <source src="/hero-loop.mp4" type="video/mp4" />
         </video>
         {/* Vertical accent line */}
         <div
