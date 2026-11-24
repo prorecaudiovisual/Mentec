@@ -64,8 +64,8 @@ export default function ContatoPage() {
               {[
                 {
                   icon: "location_on",
-                  label: "Endereço",
-                  text: "Rua Barbosa de Campos, 228 - Vila Granada\nSão Paulo - CEP: 03622-040",
+                  label: "Endereços",
+                  text: "Rua Sumé, 119 - Cidade Satélite\nGuarulhos/SP - CEP: 07224-030\n\nEstrada Benedito Alves da Silva, 801 - Geremuniz\nSanta Isabel/SP - CEP: 07500-000",
                 },
                 {
                   icon: "mail",

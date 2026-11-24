@@ -99,6 +99,7 @@ export default async function ProdutosPage() {
                               src={p.imageUrls[0]}
                               alt={p.name}
                               fill
+                              sizes="100vw"
                               className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                             />
                           ) : (
@@ -145,6 +146,7 @@ export default async function ProdutosPage() {
                         src={p.imageUrls[0]}
                         alt={p.name}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 50vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     )}
@@ -177,6 +179,7 @@ export default async function ProdutosPage() {
                           src={p.imageUrls[0]}
                           alt={p.name}
                           fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                           className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (

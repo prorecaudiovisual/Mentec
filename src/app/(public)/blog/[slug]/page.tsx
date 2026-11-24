@@ -53,6 +53,7 @@ export default async function BlogPostPage({
               src={post.coverImage}
               alt={post.title}
               fill
+              sizes="(max-width: 768px) 100vw, 768px"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

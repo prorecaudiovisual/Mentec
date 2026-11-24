@@ -233,7 +233,7 @@ export default function ProductForm({ initialData, categories }: ProductFormProp
       {/* ── Imagens ── */}
       <div>
         <label className="label mb-2 block">Imagens</label>
-        <ImageUpload value={imageUrls} onChange={setImageUrls} />
+        <ImageUpload value={imageUrls} onChange={setImageUrls} maxFiles={12} />
       </div>
 
       {/* ── Flags ── */}

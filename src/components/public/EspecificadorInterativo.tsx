@@ -203,7 +203,7 @@ export default function EspecificadorInterativo() {
             <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container block mb-3">
               Especificador Técnico
             </span>
-            <h2 className="font-display font-bold text-5xl lg:text-6xl text-white uppercase leading-none">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-6xl text-white uppercase leading-none break-words">
               Encontre o<br />
               <span className="text-primary-container">Transformador</span><br />
               Certo
@@ -301,7 +301,7 @@ export default function EspecificadorInterativo() {
                         key={op.value}
                         type="button"
                         onClick={() => handleOpcao(op.value)}
-                        className={`group text-left flex items-start gap-4 p-5 border transition-all duration-150 active:scale-[0.98] ${
+                        className={`group text-left flex items-start gap-3 sm:gap-4 p-4 sm:p-5 border transition-all duration-150 active:scale-[0.98] ${
                           selecionado
                             ? "border-primary-container bg-primary-container/10 ring-1 ring-primary-container/30"
                             : "border-white/8 bg-[#1A2535] hover:border-primary-container/35 hover:bg-[#1E2D44]"
@@ -316,7 +316,7 @@ export default function EspecificadorInterativo() {
                         </span>
                         <div className="min-w-0">
                           <span
-                            className={`font-display font-bold text-lg uppercase leading-tight block transition-colors ${
+                            className={`font-display font-bold text-base sm:text-lg uppercase leading-tight block break-words transition-colors ${
                               selecionado ? "text-white" : "text-white/70 group-hover:text-white"
                             }`}
                           >

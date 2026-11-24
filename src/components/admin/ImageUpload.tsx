@@ -63,7 +63,7 @@ export default function ImageUpload({
       <div className="flex flex-wrap gap-3">
         {value.map((url) => (
           <div key={url} className="relative w-24 h-24 rounded-lg overflow-hidden border border-gray-200 group">
-            <Image src={url} alt="" fill className="object-cover" />
+            <Image src={url} alt="" fill sizes="200px" className="object-cover" />
             <button
               type="button"
               onClick={() => remove(url)}

@@ -67,8 +67,9 @@ export default function Footer() {
               <p className="text-sm text-[#9CA3AF]">(11) 2684-9408 / (11) 2681-3131</p>
             </div>
             <div>
-              <p className="font-heading text-[9px] uppercase tracking-[0.15em] text-[#4B5563] mb-1">Endereço</p>
-              <p className="text-sm text-[#9CA3AF]">Rua Barbosa de Campos, 228 - Vila Granada<br />São Paulo - CEP: 03622-040</p>
+              <p className="font-heading text-[9px] uppercase tracking-[0.15em] text-[#4B5563] mb-1">Endereços</p>
+              <p className="text-sm text-[#9CA3AF]">Rua Sumé, 119 - Cidade Satélite<br />Guarulhos/SP - CEP: 07224-030</p>
+              <p className="text-sm text-[#9CA3AF] mt-2">Estrada Benedito Alves da Silva, 801 - Geremuniz<br />Santa Isabel/SP - CEP: 07500-000</p>
             </div>
           </div>
         </div>

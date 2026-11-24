@@ -72,7 +72,7 @@ export default function SobrePage() {
                 <span className="material-symbols-outlined text-primary-container" style={{ fontSize: "18px" }}>location_on</span>
               </div>
               <span className="font-heading text-[9px] uppercase tracking-[0.16em]">
-                Vila Granada — São Paulo, SP
+                Cidade Satélite — Guarulhos, SP
               </span>
             </div>
           </div>

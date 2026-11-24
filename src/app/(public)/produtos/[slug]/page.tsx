@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { APLICACOES } from "@/lib/aplicacoes";
+import ProductGallery from "@/components/public/ProductGallery";
 
 export const dynamic = "force-dynamic";
 
@@ -73,6 +74,7 @@ export default async function ProdutoPage({
                 src={product.imageUrls[0]}
                 alt={product.name}
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain p-6 lg:p-12"
                 priority
               />
@@ -161,12 +163,30 @@ export default async function ProdutoPage({
                   src={product.imageUrls[1] ?? product.imageUrls[0]}
                   alt={product.name}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain"
                 />
               ) : (
                 <span className="material-symbols-outlined text-white/8" style={{ fontSize: "80px" }}>bolt</span>
               )}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── GALERIA ───────────────────────────────────────── */}
+      {product.imageUrls.length > 1 && (
+        <section className="bg-white">
+          <div className="max-w-[1280px] mx-auto px-8 py-16">
+            <div className="text-center mb-12">
+              <span className="font-heading text-[9px] uppercase tracking-[0.22em] text-primary-container block mb-3">
+                Imagens do produto
+              </span>
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-on-surface uppercase leading-none">
+                Galeria
+              </h2>
+            </div>
+            <ProductGallery images={product.imageUrls} productName={product.name} />
           </div>
         </section>
       )}
@@ -226,6 +246,7 @@ export default async function ProdutoPage({
                           src={img}
                           alt={cat.name}
                           fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw"
                           className="object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
